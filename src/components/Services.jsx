@@ -1,5 +1,5 @@
 import React from 'react';
-import { Film, Sparkles, PlaySquare, Palette, Volume2 } from 'lucide-react';
+import { Film, Sparkles, PlaySquare, Volume2, Layers } from 'lucide-react';
 import { services } from '../data/services';
 import { Badge } from './ui/Badge';
 
@@ -13,9 +13,9 @@ export function Services() {
       case '03':
         return <PlaySquare className="w-6 h-6 text-cyan-400 stroke-[1.8]" />;
       case '04':
-        return <Palette className="w-6 h-6 text-kage-vermilion stroke-[1.8]" />;
-      case '05':
         return <Volume2 className="w-6 h-6 text-emerald-400 stroke-[1.8]" />;
+      case '05':
+        return <Layers className="w-6 h-6 text-rose-400 stroke-[1.8]" />;
       default:
         return <Film className="w-6 h-6 text-kage-ember stroke-[1.8]" />;
     }

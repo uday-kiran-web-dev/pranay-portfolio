@@ -13,7 +13,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
     email: '',
     projectType: 'Brand Commercial',
     turnaround: 'Standard (1-2 Weeks)',
-    budget: '$4,000 - $8,000',
+    budget: '$3,000 - $6,000',
     message: '',
   });
 
@@ -29,7 +29,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
         turnaround: initialSpecs.turnaround || prev.turnaround,
         budget: initialSpecs.estimatedRange || prev.budget,
         message: initialSpecs.addons?.length
-          ? `Selected Add-ons:\n- ${initialSpecs.addons.join('\n- ')}\n\nProject Brief details:`
+          ? `Project Requirements:\n- ${initialSpecs.addons.join('\n- ')}\n\nProject Brief details:`
           : prev.message,
       }));
     }
@@ -81,8 +81,8 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
 
       addToast({
         type: 'success',
-        title: 'Inquiry Sent to Pranay',
-        message: `Thank you ${formData.name}! Pranay will review your video brief and reply within 12 hours.`,
+        title: 'Inquiry Sent to Pranay Kumar',
+        message: `Thank you ${formData.name}! Pranay Kumar will review your video brief and reply within 12 hours.`,
       });
     }, 800);
   };
@@ -108,7 +108,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-kage-vermilion animate-pulse" />
             <h3 id="contact-modal-title" className="text-base font-display font-bold text-white tracking-wide">
-              CONTACT PRANAY // INQUIRE
+              CONTACT PRANAY KUMAR // INQUIRE
             </h3>
           </div>
 
@@ -130,7 +130,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
               </div>
               <h4 className="text-2xl font-display font-bold text-white">Project Inquiry Received</h4>
               <p className="text-sm text-kage-boneDim max-w-md leading-relaxed">
-                Your video brief for <strong className="text-kage-ember">{formData.projectType}</strong> has been transmitted directly to Pranay.
+                Your video brief for <strong className="text-kage-ember">{formData.projectType}</strong> has been transmitted directly to Pranay Kumar.
               </p>
               <div className="p-3.5 rounded-xl glass-inset font-mono text-xs text-kage-muted">
                 Direct phone: +91 6301939938 • Response within 12 hours
@@ -231,7 +231,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. $4,000 - $8,000 / ₹30,000 - ₹80,000"
+                  placeholder="e.g. ₹30,000 - ₹80,000 / $3,000 - $6,000"
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                   className="w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
@@ -259,7 +259,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-xs font-mono text-kage-muted">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Direct reply from Pranay</span>
+                  <span>Direct reply from Pranay Kumar</span>
                 </div>
 
                 <LiquidCarveButton

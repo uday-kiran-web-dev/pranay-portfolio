@@ -3,12 +3,12 @@ export const services = [
     id: "01",
     title: "VIDEO EDITING",
     icon: "Film",
-    tag: "NLE MASTERY",
-    description: "High-impact brand commercials, narrative short films, YouTube episodic entertainment, and dynamic social pacing."
+    tag: "PREMIERE PRO",
+    description: "Brand films, corporate media, digital commercials, YouTube content, and high-retention narrative pacing."
   },
   {
     id: "02",
-    title: "MOTION DESIGN",
+    title: "MOTION GRAPHICS & VFX",
     icon: "Sparkles",
     tag: "AFTER EFFECTS",
     description: "2D/3D kinetic typography, animated title sequences, visual effects compositing, and broadcast-ready lower-thirds."
@@ -18,20 +18,20 @@ export const services = [
     title: "SOCIAL MEDIA CONTENT",
     icon: "PlaySquare",
     tag: "HIGH RETENTION",
-    description: "Vertical 9:16 reels, viral hook optimization, creative fast-cut advertisements, and multi-platform cutdowns."
+    description: "Short-form videos, viral 9:16 reels, hook optimization, creative fast-cut advertisements, and digital cutdowns."
   },
   {
     id: "04",
-    title: "COLOUR GRADING",
-    icon: "Palette",
-    tag: "DAVINCI RESOLVE",
-    description: "ACES color space management, cinematic film print emulations, shot-to-shot matching, and HDR10+ / Rec.709 mastering."
+    title: "SOUND DESIGN",
+    icon: "Volume2",
+    tag: "AUDIO & FOLEY",
+    description: "Clean dialogue enhancement, tactical sound FX, impact risers, rhythm sync, and balanced multi-track master audio."
   },
   {
     id: "05",
-    title: "SOUND DESIGN",
-    icon: "Volume2",
-    tag: "AUDIO MIXING",
-    description: "Spatial audio textures, tactical foley, vocal dialogue restoration, sub-bass drops, and balanced multi-stem master mix."
+    title: "GRAPHIC DESIGN & ASSETS",
+    icon: "Layers",
+    tag: "PHOTOSHOP",
+    description: "High-CTR YouTube thumbnails, visual assets, title design, graphic overlays, and promotional artwork."
   }
 ];

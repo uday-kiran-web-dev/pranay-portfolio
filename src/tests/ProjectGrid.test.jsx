@@ -7,7 +7,7 @@ describe('ProjectGrid Component', () => {
   it('renders all projects by default in Bento Grid mode', () => {
     render(<ProjectGrid />);
     expect(screen.getByText('FLIPKART BIG DIWALI SALE')).toBeInTheDocument();
-    expect(screen.getByText('HERITAGE GOLD & DIAMONDS')).toBeInTheDocument();
+    expect(screen.getByText('ROYAL HERITAGE GOLD')).toBeInTheDocument();
     expect(screen.getByText('AUDIO ODYSSEY STORIES')).toBeInTheDocument();
   });
 
@@ -26,7 +26,7 @@ describe('ProjectGrid Component', () => {
     fireEvent.change(searchInput, { target: { value: 'Flipkart' } });
 
     expect(screen.getByText('FLIPKART BIG DIWALI SALE')).toBeInTheDocument();
-    expect(screen.queryByText('HERITAGE GOLD & DIAMONDS')).not.toBeInTheDocument();
+    expect(screen.queryByText('ROYAL HERITAGE GOLD')).not.toBeInTheDocument();
   });
 
   it('opens case study modal when clicking a project card', () => {

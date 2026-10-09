@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Film, Copy, Check, ArrowUp, Mail, Phone, MapPin, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Film, Copy, Check, ArrowUp, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import { profile } from '../data/profile';
-import { Badge } from './ui/Badge';
 
 export function Footer({ onOpenContact }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -33,7 +32,7 @@ export function Footer({ onOpenContact }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Creative Headline matching pranay-portfolio */}
+        {/* Top Creative Headline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pb-16 border-b border-white/10">
           
           {/* Left: Handwritten Quote */}
@@ -56,7 +55,7 @@ export function Footer({ onOpenContact }) {
               TOGETHER<span className="text-kage-vermilion">.</span>
             </h2>
             <p className="text-xs sm:text-sm text-kage-boneDim max-w-md leading-relaxed">
-              Have a commercial, YouTube episode, music video, or short film in mind? I'm always open to collaborating with directors, brands, and creative teams.
+              Have a commercial, digital campaign, short film, or social content in mind? I'm always open to collaborating with directors, brands, and agencies.
             </p>
           </div>
 
@@ -91,12 +90,12 @@ export function Footer({ onOpenContact }) {
                 <Film className="w-5 h-5 text-rose-400" />
               </div>
               <span className="font-display font-extrabold text-white text-lg tracking-wider">
-                PRANAY<span className="text-kage-vermilion">.</span>
+                PRANAY KUMAR<span className="text-kage-vermilion">.</span>
               </span>
             </div>
 
             <p className="text-kage-boneDim text-sm max-w-md leading-relaxed">
-              Video Editor & Motion Designer specializing in Adobe Premiere Pro, After Effects, and Photoshop. Collaborated with 40+ brands including Flipkart, Kuku FM, and Tamada Media.
+              Professional Video Editor & Motion Designer specializing in Adobe Premiere Pro, After Effects, and Photoshop. Collaborated with 40+ brands including Flipkart, Kuku FM, Paynexa, and Tamada Media.
             </p>
 
             {/* Direct Contact Pills with 1-click clipboard copy */}
@@ -155,7 +154,7 @@ export function Footer({ onOpenContact }) {
               </div>
               <div>⚡ 40+ Brands Delivered</div>
               <div>🎬 5+ Narrative Short Films</div>
-              <div>💼 1.2 Yrs Tamada Media (FilmyFocus)</div>
+              <div>💼 1.2 Yrs Tamada Media (FilmyFocus | Lopply)</div>
             </div>
 
             <div className="flex items-center gap-2 mt-2">
@@ -179,7 +178,7 @@ export function Footer({ onOpenContact }) {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-kage-muted">
           <div className="flex items-center space-x-3">
-            <span className="font-display font-bold text-white">PRANAY.</span>
+            <span className="font-display font-bold text-white">PRANAY KUMAR.</span>
             <span>•</span>
             <span className="hidden sm:inline">EDIT • MOTION • CREATE • REPEAT</span>
             <span>•</span>

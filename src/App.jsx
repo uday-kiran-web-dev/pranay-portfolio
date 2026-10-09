@@ -6,7 +6,6 @@ import { Statistics } from './components/Statistics';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { Footer } from './components/Footer';
-import { ShowreelModal } from './components/ShowreelModal';
 import { ContactModal } from './components/ContactModal';
 import { CaseStudyModal } from './components/CaseStudyModal';
 import { ToastProvider } from './components/ui/Toast';
@@ -15,7 +14,6 @@ import { KageProgressRail } from './components/kage/KageProgressRail';
 import { useAmbientSuiteAudio } from './utils/ambientAudio';
 
 function PortfolioApp() {
-  const [showreelOpen, setShowreelOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [estimatorSpecs, setEstimatorSpecs] = useState(null);
@@ -39,7 +37,6 @@ function PortfolioApp() {
 
       {/* 01 Navigation */}
       <Navbar
-        onOpenShowreel={() => setShowreelOpen(true)}
         onOpenContact={handleOpenGeneralContact}
         ambientAudio={ambientAudio}
         toggleAmbientAudio={toggleAmbientAudio}
@@ -49,7 +46,6 @@ function PortfolioApp() {
       <main className="relative z-10">
         {/* 01: Hero Gate */}
         <HeroSection
-          onOpenShowreel={() => setShowreelOpen(true)}
           onOpenContact={handleOpenGeneralContact}
         />
 
@@ -73,7 +69,6 @@ function PortfolioApp() {
       <Footer onOpenContact={handleOpenGeneralContact} />
 
       {/* Root-Level Modals */}
-      <ShowreelModal isOpen={showreelOpen} onClose={() => setShowreelOpen(false)} />
       <CaseStudyModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       <ContactModal
         isOpen={contactOpen}

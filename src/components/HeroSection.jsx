@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Play, Sparkles, Eye, Flame, Film, MapPin } from 'lucide-react';
+import React from 'react';
+import { ArrowDown, Sparkles, Eye, Flame, Film, MapPin, ArrowUpRight } from 'lucide-react';
 import { Badge } from './ui/Badge';
 import { GlitterWrap } from './originkit/GlitterWrap';
 import { StarGate } from './originkit/StarGate';
@@ -7,9 +7,7 @@ import { ScanGridButton } from './originkit/ScanGridButton';
 import { NeonBorder } from './originkit/NeonBorder';
 import { LiquidCarveButton } from './originkit/LiquidCarveButton';
 
-export function HeroSection({ onOpenShowreel, onOpenContact }) {
-  const [isPlayingPreview, setIsPlayingPreview] = useState(false);
-
+export function HeroSection({ onOpenContact }) {
   return (
     <GlitterWrap
       particleCount={45}
@@ -28,7 +26,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-kage-vermilion"></span>
             </span>
             <span className="text-xs font-mono font-medium text-kage-bone tracking-wide">
-              PORTFOLIO // PRANAY • VIDEO EDITOR & MOTION DESIGNER
+              PORTFOLIO // PRANAY KUMAR • VIDEO EDITOR & MOTION DESIGNER
             </span>
             <Sparkles className="w-3.5 h-3.5 text-kage-ember" />
           </div>
@@ -43,33 +41,33 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
 
           {/* Personal Bio */}
           <p className="text-base sm:text-xl text-kage-boneDim font-normal max-w-2xl mx-auto mb-8 leading-relaxed">
-            Hi, I’m <strong className="text-white font-semibold">Pranay</strong>. Turning raw camera rushes into high-retention commercials, kinetic motion ads, and episodic entertainment for <strong className="text-kage-ember">40+ brands</strong> and <strong className="text-kage-vermilion">Tamada Media</strong>.
+            Hi, I’m <strong className="text-white font-semibold">Pranay Kumar</strong>. Turning raw camera rushes into high-impact commercials, kinetic motion ads, and episodic entertainment for <strong className="text-kage-ember">40+ brands</strong> and <strong className="text-kage-vermilion">Tamada Media</strong>.
           </p>
 
-          {/* Interactive Action CTAs */}
+          {/* Action CTAs (No Reel button) */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <LiquidCarveButton
-              variant="amber"
-              size="lg"
-              icon={Play}
-              onClick={onOpenShowreel}
-              className="text-sm sm:text-base shadow-[0_10px_30px_rgba(224,35,28,0.3)]"
-            >
-              Watch 2025 Showreel
-            </LiquidCarveButton>
+            <a href="#work">
+              <LiquidCarveButton
+                variant="amber"
+                size="lg"
+                icon={ArrowDown}
+                className="text-sm sm:text-base shadow-[0_10px_30px_rgba(224,35,28,0.3)] cursor-pointer"
+              >
+                Explore Selected Work
+              </LiquidCarveButton>
+            </a>
             
             <ScanGridButton
               variant="crimson"
               size="lg"
               onClick={onOpenContact}
             >
-              Hire Pranay Direct
+              Let's Work Together
             </ScanGridButton>
           </div>
 
-          {/* Master Showreel Spotlight with Poster Artwork */}
+          {/* Featured Visual Artwork Showcase */}
           <div className="w-full max-w-4xl relative group">
-            
             <StarGate
               color="#e0231c"
               glowColor="rgba(224, 35, 28, 0.25)"
@@ -81,62 +79,31 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
                 borderRadius="1.25rem"
                 className="w-full shadow-2xl"
               >
-                <div 
-                  className="relative aspect-video sm:aspect-[21/9] w-full cursor-pointer overflow-hidden rounded-[calc(1.25rem-1.5px)] bg-kage-ink flex glass-panel"
-                  onClick={onOpenShowreel}
-                  onMouseEnter={() => setIsPlayingPreview(true)}
-                  onMouseLeave={() => setIsPlayingPreview(false)}
-                >
-                  {/* Left Side: Pranay Poster Artwork */}
-                  <div className="w-1/3 sm:w-1/4 h-full relative overflow-hidden hidden sm:block border-r border-white/10 shrink-0">
-                    <img
-                      src="/pranay-hero.jpg"
-                      alt="Pranay Art Poster"
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute bottom-2 left-2 right-2 text-center">
-                      <span className="text-[10px] font-mono font-bold text-kage-vermilion uppercase tracking-wider backdrop-blur-md px-2 py-0.5 rounded-full bg-black/50 border border-white/10">
-                        Pranay Edits
+                <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden rounded-[calc(1.25rem-1.5px)] bg-kage-ink flex glass-panel items-center justify-center">
+                  
+                  {/* Background Artwork Banner */}
+                  <img
+                    src="/images/pranay-artwork.png"
+                    alt="Pranay Kumar Artwork"
+                    className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700 brightness-95"
+                  />
+
+                  {/* Gradient Dark Scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-kage-ink via-transparent to-black/40 pointer-events-none" />
+
+                  {/* Bottom Frosted HUD Bar */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-center justify-between pointer-events-none bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-[2px]">
+                    <div className="flex items-center gap-3">
+                      <Badge variant="rose" size="sm">
+                        PREMIERE PRO • AFTER EFFECTS • PHOTOSHOP
+                      </Badge>
+                      <span className="text-xs font-mono text-kage-boneDim hidden sm:inline-block">
+                        FLIPKART // KUKU FM // PAYNEXA // TAMADA MEDIA
                       </span>
                     </div>
-                  </div>
-
-                  {/* Main Showreel Canvas */}
-                  <div className="relative flex-1 h-full overflow-hidden">
-                    <img
-                      src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1600&q=85"
-                      alt="Pranay 2025 Showreel"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90"
-                    />
-
-                    {/* Gradient Dark Scrim */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-kage-ink via-kage-ink/20 to-black/40 pointer-events-none" />
-
-                    {/* Center Play Beacon */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-kage-vermilion text-white flex items-center justify-center shadow-[0_0_40px_rgba(224,35,28,0.8)] group-hover:scale-110 group-hover:bg-kage-ember transition-all duration-300">
-                        <Play className="w-7 sm:w-8 h-7 sm:h-8 fill-current ml-1" />
-                      </div>
-                      <span className="mt-3 text-xs sm:text-sm font-mono tracking-widest text-white font-semibold uppercase backdrop-blur-xl px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 shadow-lg">
-                        Play Master Reel (02:18)
-                      </span>
-                    </div>
-
-                    {/* Bottom Frosted HUD Bar */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-center justify-between pointer-events-none bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-[2px]">
-                      <div className="flex items-center gap-3">
-                        <Badge variant="rose" size="sm">
-                          PREMIERE & AFTER EFFECTS
-                        </Badge>
-                        <span className="text-xs font-mono text-kage-boneDim hidden sm:inline-block">
-                          FLIPKART // KUKU FM // TAMADA MEDIA
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 font-mono text-xs text-kage-ember">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>00:02:18:00</span>
-                      </div>
+                    <div className="flex items-center gap-2 font-mono text-xs text-kage-ember">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>POST-PRODUCTION READY</span>
                     </div>
                   </div>
 
@@ -153,7 +120,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Brands</span>
               </div>
               <div className="text-2xl sm:text-3xl font-display font-extrabold text-white">40+</div>
-              <div className="text-xs text-kage-muted mt-0.5">Flipkart, Kuku FM, KIMS</div>
+              <div className="text-xs text-kage-muted mt-0.5">Flipkart, Kuku FM, Paynexa</div>
             </div>
 
             <div className="p-4 rounded-2xl glass-panel-interactive text-left">

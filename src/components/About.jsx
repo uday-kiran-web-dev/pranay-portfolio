@@ -25,7 +25,7 @@ export function About({ onOpenContact }) {
           <div className="mt-3 w-16 h-1 bg-kage-vermilion rounded-full shadow-glow-vermilion" />
         </div>
 
-        {/* 3-Column Glass Layout matching pranay-portfolio */}
+        {/* 3-Column Glass Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
           {/* ================= LEFT: Authentic Portrait Card ================= */}
@@ -37,14 +37,14 @@ export function About({ onOpenContact }) {
                   onError={(e) => {
                     e.currentTarget.src = '/pranay-hero.jpg';
                   }}
-                  alt="Pranay — Portrait"
-                  className="w-full h-full object-cover object-[center_15%] scale-[1.3] hover:scale-[1.38] transition-transform duration-700"
+                  alt="Pranay Kumar — Portrait Artwork"
+                  className="w-full h-full object-cover object-[center_15%] scale-[1.15] hover:scale-[1.22] transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 text-[10px] font-mono text-white backdrop-blur-md">
-                    PRANAY.
+                    PRANAY KUMAR.
                   </span>
                   <span className="px-2.5 py-1 rounded-full bg-kage-vermilion/80 text-white text-[10px] font-mono font-bold backdrop-blur-md">
                     2+ YRS POST
@@ -78,17 +78,17 @@ export function About({ onOpenContact }) {
               </p>
 
               <p className="text-xs text-kage-muted leading-relaxed">
-                Specialized in Adobe Premiere Pro, After Effects, and Photoshop. Passionate about rhythmic pacing, immersive multi-track sound design, and color grading that elevates brand identity.
+                Expertise across Adobe Premiere Pro, After Effects, and Photoshop. Dedicated to precision timing, sound design, audience retention, and visual storytelling that resonates across audiences.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-3">
-                <a
-                  href="#contact"
+                <button
+                  onClick={onOpenContact}
                   className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-kage-vermilion hover:bg-kage-ember text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(224,35,28,0.4)] cursor-pointer"
                 >
                   <span>Get In Touch</span>
                   <ArrowUpRight size={13} />
-                </a>
+                </button>
 
                 <a
                   href={profile.resumePath}

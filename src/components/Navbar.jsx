@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Film, Play, Menu, X, Volume2, VolumeX, ArrowUpRight, Mail } from 'lucide-react';
-import { Button } from './ui/Button';
-import { LiquidCarveButton } from './originkit/LiquidCarveButton';
+import { Film, Menu, X, Volume2, VolumeX, ArrowUpRight } from 'lucide-react';
 
-export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbientAudio }) {
+export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [timecode, setTimecode] = useState('00:00:00:00');
@@ -46,7 +44,7 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Signature matching PRANAY. with red dot and REC status */}
+        {/* Brand Signature: PRANAY KUMAR. */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 via-white/5 to-transparent border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex items-center justify-center group-hover:border-rose-400/60 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.35)] transition-all">
             <Film className="w-5 h-5 text-rose-400 group-hover:scale-110 transition-transform" />
@@ -54,7 +52,7 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
           <div>
             <div className="flex items-center gap-2">
               <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-rose-300 transition-colors drop-shadow-sm">
-                PRANAY<span className="text-kage-vermilion">.</span>
+                PRANAY KUMAR<span className="text-kage-vermilion">.</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[10px] font-mono text-rose-400 font-bold tracking-widest shadow-[0_0_12px_rgba(244,63,94,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
@@ -95,24 +93,9 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
             {ambientAudio ? <Volume2 className="w-4 h-4 text-amber-400 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
           </button>
 
-          <Button
-            variant="secondary"
-            size="sm"
-            icon={Play}
-            onClick={onOpenShowreel}
-            className="hidden lg:inline-flex text-xs font-semibold glass-pill border-white/20"
-          >
-            Reel '26
-          </Button>
-
           {/* Let's Work CTA button matching pranay-portfolio */}
           <a
             href="#contact"
-            onClick={(e) => {
-              if (onOpenContact) {
-                // optionally also can open contact modal
-              }
-            }}
             className="inline-flex items-center space-x-1 px-5 py-2 rounded-full bg-kage-vermilion hover:bg-kage-ember text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(224,35,28,0.4)] hover:shadow-[0_6px_20px_rgba(224,35,28,0.6)] cursor-pointer"
           >
             <span>Let's Work</span>
@@ -163,18 +146,6 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
             </a>
           ))}
           <div className="pt-2 flex flex-col gap-2">
-            <Button
-              variant="secondary"
-              size="md"
-              icon={Play}
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenShowreel();
-              }}
-              className="w-full text-xs justify-center glass-pill"
-            >
-              Watch Showreel
-            </Button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}

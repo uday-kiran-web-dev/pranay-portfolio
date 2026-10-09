@@ -10,12 +10,12 @@ describe('Services Component', () => {
     expect(screen.getByText(/WHAT I DO/i)).toBeInTheDocument();
   });
 
-  it('renders all 5 core service offerings', () => {
+  it('renders core service offerings without color grading', () => {
     render(<Services />);
     expect(screen.getByText('VIDEO EDITING')).toBeInTheDocument();
-    expect(screen.getByText('MOTION DESIGN')).toBeInTheDocument();
+    expect(screen.getByText('MOTION GRAPHICS & VFX')).toBeInTheDocument();
     expect(screen.getByText('SOCIAL MEDIA CONTENT')).toBeInTheDocument();
-    expect(screen.getByText('COLOUR GRADING')).toBeInTheDocument();
     expect(screen.getByText('SOUND DESIGN')).toBeInTheDocument();
+    expect(screen.getByText('GRAPHIC DESIGN & ASSETS')).toBeInTheDocument();
   });
 });

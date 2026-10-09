@@ -1,16 +1,16 @@
 export const profile = {
-  name: "Pranay",
+  name: "Pranay Kumar",
   fullName: "Chirra Pranay Kumar",
-  brandName: "PRANAY.",
+  brandName: "PRANAY KUMAR.",
   title: "VIDEO EDITOR & MOTION DESIGNER",
   tagline: "CUTS × MOTION × STORIES",
   location: "Karimnagar, Telangana, India",
   email: "pranayswaero111@gmail.com",
   phone: "+91 6301939938",
   heroDescription:
-    "I turn raw camera rushes, ideas, and emotions into high-retention visual stories. From commercial brand campaigns to dynamic motion graphics and episodic entertainment, I craft content that connects.",
+    "I turn raw camera rushes, ideas, and emotions into high-impact visual stories. From commercial brand campaigns to dynamic motion graphics and episodic entertainment, I craft content that connects.",
   aboutBio:
-    "Pranay is a Video Editor & Motion Designer based in Karimnagar, Telangana. With over two years of professional post-production experience, he specializes in turning complex footage into high-impact commercials, kinetic motion ads, and episodic entertainment through rhythm, sound design, and color grading.",
+    "Pranay Kumar is a professional Video Editor & Motion Designer based in Karimnagar, Telangana. With around two years of post-production experience, he specializes in crafting high-impact commercials, kinetic motion graphics, short films, and digital entertainment through rhythm, sound design, and creative pacing.",
   stats: {
     brands: "40+",
     brandsLabel: "BRAND COLLABORATIONS",
