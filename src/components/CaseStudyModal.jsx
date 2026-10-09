@@ -27,15 +27,15 @@ export function CaseStudyModal({ project, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
-      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto"
+      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto"
     >
       {/* Background backdrop click */}
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative z-10 w-full max-w-5xl bg-kage-ink rounded-2xl border border-white/15 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+      <div className="relative z-10 w-full max-w-5xl glass-panel rounded-3xl overflow-hidden my-auto max-h-[92vh] flex flex-col shadow-2xl">
         
         {/* Header Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-kage-ink2">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
           <div className="flex items-center gap-3">
             <Badge variant="rose" size="sm">
               CASE STUDY
@@ -47,7 +47,7 @@ export function CaseStudyModal({ project, onClose }) {
 
           <button
             onClick={onClose}
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-kage-boneDim hover:text-white transition-all cursor-pointer"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-kage-boneDim hover:text-white transition-all cursor-pointer"
             aria-label="Close Case Study"
           >
             <X className="w-5 h-5" />
@@ -58,7 +58,7 @@ export function CaseStudyModal({ project, onClose }) {
         <div className="overflow-y-auto p-6 sm:p-8 flex flex-col gap-8">
           
           {/* Main Video Hero */}
-          <div className="relative aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
+          <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-white/15 shadow-2xl">
             <video
               ref={videoRef}
               src={project.videoFull}
@@ -69,7 +69,7 @@ export function CaseStudyModal({ project, onClose }) {
           </div>
 
           {/* Core Info Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-kage-ink2 border border-white/5 font-mono text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-2xl glass-inset font-mono text-xs">
             <div>
               <span className="text-kage-muted block text-[10px]">CLIENT</span>
               <span className="text-white font-semibold">{project.client}</span>
@@ -108,7 +108,7 @@ export function CaseStudyModal({ project, onClose }) {
               </h4>
               <div className="flex flex-col gap-2">
                 {project.timelineBreakdown.map((item, i) => (
-                  <div key={i} className="p-2.5 rounded-lg bg-kage-ink2 border border-white/5 text-xs font-mono">
+                  <div key={i} className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
                     <span className="text-kage-ember font-semibold block">{item.track}</span>
                     <span className="text-kage-boneDim text-[11px]">{item.desc}</span>
                   </div>
@@ -119,13 +119,13 @@ export function CaseStudyModal({ project, onClose }) {
 
           {/* Director Quote */}
           {project.directorQuote && (
-            <div className="p-4 rounded-xl bg-kage-vermilion/10 border border-kage-vermilion/30 flex items-start gap-3">
+            <div className="p-5 rounded-2xl glass-panel border-kage-vermilion/30 flex items-start gap-3.5 shadow-xl">
               <Sparkles className="w-5 h-5 text-kage-vermilion shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs italic text-kage-bone font-serif leading-relaxed">
                   "{project.directorQuote}"
                 </p>
-                <span className="text-[10px] font-mono text-kage-ember block mt-1">
+                <span className="text-[10px] font-mono text-kage-ember block mt-1.5 font-semibold">
                   — {project.director} ({project.client})
                 </span>
               </div>

@@ -97,16 +97,16 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"
-      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto"
+      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto"
     >
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative z-10 w-full max-w-2xl bg-cinematic-950 rounded-2xl border border-white/15 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+      <div className="relative z-10 w-full max-w-2xl glass-panel rounded-3xl overflow-hidden my-auto max-h-[92vh] flex flex-col shadow-2xl">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-cinematic-900/90">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-kage-vermilion animate-pulse" />
             <h3 id="contact-modal-title" className="text-base font-display font-bold text-white tracking-wide">
               CONTACT PRANAY // INQUIRE
             </h3>
@@ -114,7 +114,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
 
           <button
             onClick={onClose}
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-cinematic-300 hover:text-white transition-all"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-kage-boneDim hover:text-white transition-all cursor-pointer"
             aria-label="Close Inquiry Modal"
           >
             <X className="w-5 h-5" />
@@ -125,14 +125,14 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
         <div className="p-6 sm:p-8 overflow-y-auto">
           {isSubmitted ? (
             <div className="py-12 flex flex-col items-center text-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shadow-lg">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h4 className="text-2xl font-display font-bold text-white">Project Inquiry Received</h4>
-              <p className="text-sm text-cinematic-300 max-w-md leading-relaxed">
-                Your video brief for <strong className="text-amber-400">{formData.projectType}</strong> has been transmitted directly to Pranay.
+              <p className="text-sm text-kage-boneDim max-w-md leading-relaxed">
+                Your video brief for <strong className="text-kage-ember">{formData.projectType}</strong> has been transmitted directly to Pranay.
               </p>
-              <div className="p-3 rounded-lg bg-cinematic-900 border border-white/10 font-mono text-xs text-cinematic-400">
+              <div className="p-3.5 rounded-xl glass-inset font-mono text-xs text-kage-muted">
                 Direct phone: +91 6301939938 • Response within 12 hours
               </div>
               <Button variant="primary" size="md" onClick={handleResetAndClose} className="mt-4">
@@ -143,9 +143,9 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               
               {/* Direct Reach Banner */}
-              <div className="p-3.5 rounded-xl bg-cinematic-900/90 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-cinematic-300">
+              <div className="p-3.5 rounded-2xl glass-inset flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-kage-boneDim">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-amber-400" />
+                  <Mail className="w-4 h-4 text-kage-ember" />
                   <span>pranayswaero111@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2 text-cyan-400">
@@ -157,7 +157,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                  <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                     Your Name / Company *
                   </label>
                   <input
@@ -165,15 +165,15 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                     placeholder="e.g. Brand Producer / Agency Lead"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`w-full bg-cinematic-900 border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
-                      errors.name ? 'border-rose-500' : 'border-white/10 focus:border-amber-500'
+                    className={`w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
+                      errors.name ? 'border-rose-500' : ''
                     }`}
                   />
                   {errors.name && <p className="text-rose-400 text-[11px] mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                  <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                     Work Email *
                   </label>
                   <input
@@ -181,8 +181,8 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                     placeholder="producer@agency.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`w-full bg-cinematic-900 border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
-                      errors.email ? 'border-rose-500' : 'border-white/10 focus:border-amber-500'
+                    className={`w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
+                      errors.email ? 'border-rose-500' : ''
                     }`}
                   />
                   {errors.email && <p className="text-rose-400 text-[11px] mt-1">{errors.email}</p>}
@@ -192,13 +192,13 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
               {/* Row 2: Project Type & Turnaround */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                  <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                     Deliverable Category
                   </label>
                   <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className="w-full bg-cinematic-900 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
+                    className="w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                   >
                     <option value="Brand Commercial">Brand Commercial</option>
                     <option value="Motion Graphics & VFX">Motion Graphics & VFX</option>
@@ -209,13 +209,13 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                  <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                     Turnaround Pacing
                   </label>
                   <select
                     value={formData.turnaround}
                     onChange={(e) => setFormData({ ...formData, turnaround: e.target.value })}
-                    className="w-full bg-cinematic-900 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
+                    className="w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                   >
                     <option value="Rush 48h Turnaround">Rush 48h Turnaround</option>
                     <option value="Standard (1-2 Weeks)">Standard (1-2 Weeks)</option>
@@ -226,7 +226,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
 
               {/* Row 3: Budget */}
               <div>
-                <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                   Target Budget / Rate Tier
                 </label>
                 <input
@@ -234,13 +234,13 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                   placeholder="e.g. $4,000 - $8,000 / ₹30,000 - ₹80,000"
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full bg-cinematic-900 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
+                  className="w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                 />
               </div>
 
               {/* Row 4: Message */}
               <div>
-                <label className="block text-xs font-mono text-cinematic-300 uppercase mb-1.5">
+                <label className="block text-xs font-mono text-kage-boneDim uppercase mb-1.5">
                   Project Brief & Video Requirements *
                 </label>
                 <textarea
@@ -248,8 +248,8 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                   placeholder="Describe your vision, footage camera format, reference links, deadline, and motion graphic requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full bg-cinematic-900 border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
-                    errors.message ? 'border-rose-500' : 'border-white/10 focus:border-amber-500'
+                  className={`w-full glass-input rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none transition-colors ${
+                    errors.message ? 'border-rose-500' : ''
                   }`}
                 />
                 {errors.message && <p className="text-rose-400 text-[11px] mt-1">{errors.message}</p>}
@@ -257,7 +257,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
 
               {/* Submit CTA */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-cinematic-400">
+                <div className="flex items-center gap-2 text-xs font-mono text-kage-muted">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>Direct reply from Pranay</span>
                 </div>
@@ -267,7 +267,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
                   variant="amber"
                   size="lg"
                   icon={Send}
-                  className="w-full sm:w-auto px-8"
+                  className="w-full sm:w-auto px-8 shadow-[0_10px_25px_rgba(224,35,28,0.3)]"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Video Brief'}
                 </LiquidCarveButton>

@@ -11,15 +11,15 @@ describe('Atmospheric Navigation & Background Components', () => {
     expect(canvas).toBeInTheDocument();
   });
 
-  it('renders KageProgressRail with chapter indicators', () => {
+  it('renders KageProgressRail with updated chapter indicators', () => {
     render(<KageProgressRail />);
     const rail = screen.getByLabelText(/Chapter Navigation Rail/i);
     expect(rail).toBeInTheDocument();
     expect(screen.getByTitle('01 · THE GATE')).toBeInTheDocument();
-    expect(screen.getByTitle('02 · SELECTED WORKS')).toBeInTheDocument();
-    expect(screen.getByTitle('03 · COLOR GRADING')).toBeInTheDocument();
-    expect(screen.getByTitle('04 · TIMELINE')).toBeInTheDocument();
-    expect(screen.getByTitle('05 · SOUND DESK')).toBeInTheDocument();
-    expect(screen.getByTitle('06 · RATES & INQUIRY')).toBeInTheDocument();
+    expect(screen.getByTitle('02 · SELECTED WORK')).toBeInTheDocument();
+    expect(screen.getByTitle('03 · ABOUT')).toBeInTheDocument();
+    expect(screen.getByTitle('04 · EXPERIENCE')).toBeInTheDocument();
+    expect(screen.getByTitle('05 · SERVICES')).toBeInTheDocument();
+    expect(screen.getByTitle('06 · CONTACT')).toBeInTheDocument();
   });
 });

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Film, Play, Menu, X, Volume2, VolumeX, Mail } from 'lucide-react';
+import { Film, Play, Menu, X, Volume2, VolumeX, ArrowUpRight, Mail } from 'lucide-react';
 import { Button } from './ui/Button';
 import { LiquidCarveButton } from './originkit/LiquidCarveButton';
 
@@ -30,54 +30,53 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
   }, []);
 
   const navLinks = [
-    { label: 'Works', href: '#projects' },
-    { label: 'Color Grade', href: '#color-grading' },
-    { label: 'Timeline', href: '#nle-timeline' },
-    { label: 'Sound Desk', href: '#sound-mixer' },
-    { label: 'Stack', href: '#gear' },
-    { label: 'Rates', href: '#pricing' },
+    { label: 'Work', href: '#work' },
+    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Services', href: '#services' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-cinematic-950/85 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/50 py-3'
+          ? 'glass-header py-3'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Signature */}
+        {/* Brand Signature matching PRANAY. with red dot and REC status */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 to-amber-500/10 border border-rose-500/30 flex items-center justify-center group-hover:border-rose-400/60 group-hover:shadow-[0_0_15px_rgba(244,63,94,0.3)] transition-all">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 via-white/5 to-transparent border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex items-center justify-center group-hover:border-rose-400/60 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.35)] transition-all">
             <Film className="w-5 h-5 text-rose-400 group-hover:scale-110 transition-transform" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-rose-300 transition-colors">
-                PRANAY
+              <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-rose-300 transition-colors drop-shadow-sm">
+                PRANAY<span className="text-kage-vermilion">.</span>
               </span>
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-rose-500/15 border border-rose-500/30 text-[10px] font-mono text-rose-400 font-bold tracking-widest">
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-rec" />
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[10px] font-mono text-rose-400 font-bold tracking-widest shadow-[0_0_12px_rgba(244,63,94,0.2)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
                 REC
               </span>
             </div>
-            <div className="flex items-center gap-2 text-[11px] text-cinematic-400 font-mono">
-              <span className="text-amber-400/80">TC</span>
+            <div className="flex items-center gap-2 text-[11px] text-kage-boneDim font-mono">
+              <span className="text-amber-400/90 font-bold">TC</span>
               <span>{timecode}</span>
-              <span className="text-cinematic-600">•</span>
-              <span className="text-cinematic-400">24 FPS</span>
+              <span className="text-white/30">•</span>
+              <span className="text-kage-boneDim">24 FPS</span>
             </div>
           </div>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-cinematic-900/60 border border-white/10 backdrop-blur-md">
+        {/* Desktop Frosted Glass Navigation Pill */}
+        <nav className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.12),0_8px_20px_rgba(0,0,0,0.4)]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="px-3.5 py-1.5 text-xs font-medium text-cinematic-300 hover:text-white rounded-full hover:bg-white/5 transition-all"
+              className="px-4 py-1.5 text-xs font-medium text-kage-boneDim hover:text-white rounded-full hover:bg-white/10 transition-all"
             >
               {link.label}
             </a>
@@ -90,7 +89,7 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
           <button
             onClick={toggleAmbientAudio}
             title={ambientAudio ? 'Mute Studio Ambience' : 'Play Studio Ambience'}
-            className="p-2.5 rounded-lg bg-cinematic-900/80 border border-white/10 text-cinematic-300 hover:text-amber-400 hover:border-amber-500/30 transition-all"
+            className="p-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-kage-boneDim hover:text-amber-400 hover:border-amber-500/40 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition-all cursor-pointer"
             aria-label="Toggle ambient studio soundscape"
           >
             {ambientAudio ? <Volume2 className="w-4 h-4 text-amber-400 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
@@ -101,35 +100,38 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
             size="sm"
             icon={Play}
             onClick={onOpenShowreel}
-            className="hidden md:inline-flex text-xs font-semibold"
+            className="hidden lg:inline-flex text-xs font-semibold glass-pill border-white/20"
           >
-            Reel '25
+            Reel '26
           </Button>
 
-          <LiquidCarveButton
-            variant="amber"
-            size="sm"
-            icon={Mail}
-            onClick={onOpenContact}
-            className="text-xs"
+          {/* Let's Work CTA button matching pranay-portfolio */}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              if (onOpenContact) {
+                // optionally also can open contact modal
+              }
+            }}
+            className="inline-flex items-center space-x-1 px-5 py-2 rounded-full bg-kage-vermilion hover:bg-kage-ember text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(224,35,28,0.4)] hover:shadow-[0_6px_20px_rgba(224,35,28,0.6)] cursor-pointer"
           >
-            Hire Pranay
-          </LiquidCarveButton>
+            <span>Let's Work</span>
+            <ArrowUpRight size={14} />
+          </a>
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex items-center gap-2 sm:hidden">
-          <LiquidCarveButton
-            variant="amber"
-            size="sm"
-            onClick={onOpenContact}
-            className="text-xs py-1.5 px-3"
+        <div className="flex items-center gap-2 md:hidden">
+          <a
+            href="#contact"
+            className="inline-flex items-center space-x-1 px-3.5 py-1.5 rounded-full bg-kage-vermilion text-white font-semibold text-xs"
           >
-            Hire
-          </LiquidCarveButton>
+            <span>Hire</span>
+            <ArrowUpRight size={12} />
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-cinematic-300 hover:text-white"
+            className="p-2 text-kage-boneDim hover:text-white"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -137,14 +139,14 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer with frosted glass */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-cinematic-950/95 border-b border-white/10 px-4 py-4 backdrop-blur-2xl flex flex-col gap-3">
-          <div className="flex items-center justify-between py-2 border-b border-white/5">
+        <div className="md:hidden glass-header px-4 py-4 backdrop-blur-3xl flex flex-col gap-3 border-t border-white/10 mt-3">
+          <div className="flex items-center justify-between py-2 border-b border-white/10">
             <span className="text-xs font-mono text-amber-400">{timecode} (24 FPS)</span>
             <button
               onClick={toggleAmbientAudio}
-              className="flex items-center gap-2 text-xs text-cinematic-300"
+              className="flex items-center gap-2 text-xs text-kage-boneDim"
             >
               {ambientAudio ? <Volume2 className="w-4 h-4 text-amber-400" /> : <VolumeX className="w-4 h-4" />}
               <span>Room Tone</span>
@@ -155,7 +157,7 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-medium text-cinematic-200 hover:text-amber-400 py-1"
+              className="text-sm font-medium text-kage-boneDim hover:text-white py-1"
             >
               {link.label}
             </a>
@@ -169,10 +171,18 @@ export function Navbar({ onOpenShowreel, onOpenContact, ambientAudio, toggleAmbi
                 setMobileMenuOpen(false);
                 onOpenShowreel();
               }}
-              className="w-full text-xs justify-center"
+              className="w-full text-xs justify-center glass-pill"
             >
               Watch Showreel
             </Button>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center space-x-1 w-full py-2.5 rounded-full bg-kage-vermilion text-white font-semibold text-xs"
+            >
+              <span>Let's Work</span>
+              <ArrowUpRight size={14} />
+            </a>
           </div>
         </div>
       )}

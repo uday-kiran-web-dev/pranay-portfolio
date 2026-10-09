@@ -5,72 +5,54 @@ test.describe('Pranay Video Editor Portfolio E2E', () => {
     await page.goto('/');
   });
 
-  test('should display personal hero section, brand, and live timecode indicator', async ({ page }) => {
-    await expect(page.locator('header').getByText('PRANAY', { exact: true })).toBeVisible();
-    await expect(page.locator('header').getByText('REC', { exact: true })).toBeVisible();
+  test('should display navigation menu matching Work, About, Experience, Services, Contact, and Let\'s Work', async ({ page }) => {
+    const header = page.locator('header');
+    await expect(header.getByText('PRANAY')).toBeVisible();
+    await expect(header.getByText('REC')).toBeVisible();
+    await expect(header.getByRole('link', { name: 'Work', exact: true })).toBeVisible();
+    await expect(header.getByRole('link', { name: 'About', exact: true })).toBeVisible();
+    await expect(header.getByRole('link', { name: 'Experience', exact: true })).toBeVisible();
+    await expect(header.getByRole('link', { name: 'Services', exact: true })).toBeVisible();
+    await expect(header.getByRole('link', { name: 'Contact', exact: true })).toBeVisible();
+    await expect(header.getByRole('link', { name: /Let's Work/i }).first()).toBeVisible();
+  });
+
+  test('should display personal hero section and verified metrics', async ({ page }) => {
     await expect(page.getByRole('heading', { name: /Sculpting Kinetic Energy/i })).toBeVisible();
     await expect(page.getByText('40+').first()).toBeVisible();
+    await expect(page.getByText('Karimnagar').first()).toBeVisible();
   });
 
   test('should open and close the 2025 Showreel modal', async ({ page }) => {
-    // Click Watch 2025 Showreel CTA
     const showreelBtn = page.getByRole('button', { name: 'Watch 2025 Showreel' }).first();
     await showreelBtn.click();
 
-    // Verify modal is open
     const modal = page.getByRole('dialog');
     await expect(modal).toBeVisible();
     await expect(page.getByText(/SHOWREEL MASTER/i)).toBeVisible();
 
-    // Switch chapter
     const cyberpunkBtn = page.getByRole('button', { name: /Cyberpunk VFX/i });
     await cyberpunkBtn.click();
 
-    // Close modal
     const closeBtn = page.getByRole('button', { name: /Close Showreel modal/i });
     await closeBtn.click();
     await expect(modal).not.toBeVisible();
   });
 
-  test('should interact with Color Grading presets and bypass toggle', async ({ page }) => {
-    // Scroll down to color grading section
-    const colorSection = page.locator('#color-grading');
-    await colorSection.scrollIntoViewIfNeeded();
-
-    await expect(page.getByRole('heading', { name: /Color Grading & Film Emulation/i })).toBeVisible();
-
-    // Switch to Neo-Tokyo preset
-    const neoTokyoPreset = colorSection.getByRole('button', { name: /Neo-Tokyo Teal & Amber/i });
-    await neoTokyoPreset.click();
-    await expect(page.getByText('DaVinci Wide Gamut Intermediate')).toBeVisible();
-
-    // Switch scopes tab
-    const rgbTab = colorSection.getByRole('button', { name: 'RGB Parade' });
-    await rgbTab.click();
-
-    // Click bypass button
-    const bypassBtn = colorSection.getByRole('button', { name: /GRADED COLOR PASS/i });
-    await bypassBtn.click();
-    await expect(page.getByText(/BYPASS ACTIVE/i)).toBeVisible();
-  });
-
-  test('should filter projects in Bento mode and open Case Study modal', async ({ page }) => {
-    const projectsSection = page.locator('#projects');
+  test('should filter projects in Work section and open Case Study modal', async ({ page }) => {
+    const projectsSection = page.locator('#work');
     await projectsSection.scrollIntoViewIfNeeded();
 
-    // Click Entertainment filter
     const entertainmentFilter = projectsSection.getByRole('button', { name: 'Entertainment', exact: true });
     await entertainmentFilter.click();
 
     await expect(projectsSection.getByText('ENTERTAINMENT INSIDER')).toBeVisible();
     await expect(projectsSection.getByText('FLIPKART BIG DIWALI SALE')).not.toBeVisible();
 
-    // Reset to All projects filter
     const allFilter = projectsSection.getByRole('button', { name: 'All', exact: true });
     await allFilter.click();
     await expect(projectsSection.getByText('FLIPKART BIG DIWALI SALE')).toBeVisible();
 
-    // Open Case Study modal
     const projectCard = page.getByTestId('project-card-flipkart-ecommerce');
     await projectCard.click();
 
@@ -78,53 +60,49 @@ test.describe('Pranay Video Editor Portfolio E2E', () => {
     await expect(caseStudyModal).toBeVisible();
     await expect(page.getByText(/Editorial Vision & Narrative Strategy/i)).toBeVisible();
 
-    // Close Case Study
     const closeBtn = page.getByRole('button', { name: /Close Case Study/i });
     await closeBtn.click();
     await expect(caseStudyModal).not.toBeVisible();
   });
 
-  test('should interact with Stems Audio Mixer and Solo controls', async ({ page }) => {
-    const mixerSection = page.locator('#sound-mixer');
-    await mixerSection.scrollIntoViewIfNeeded();
+  test('should render Statistics, About, Experience, and Services sections', async ({ page }) => {
+    const statsSection = page.locator('#stats');
+    await statsSection.scrollIntoViewIfNeeded();
+    await expect(statsSection.getByText('40+')).toBeVisible();
+    await expect(statsSection.getByText(/More Stories/i)).toBeVisible();
 
-    await expect(page.getByRole('heading', { name: /Sound Design & Foley Mixer/i })).toBeVisible();
+    const aboutSection = page.locator('#about');
+    await aboutSection.scrollIntoViewIfNeeded();
+    await expect(page.getByRole('heading', { name: /A Visual Storyteller at Heart/i })).toBeVisible();
+    await expect(aboutSection.getByText('FILMYFOCUS | LOPPLY | Tamada Media Pvt. Ltd.')).toBeVisible();
+    await expect(aboutSection.getByText('Independent Client Collaborations')).toBeVisible();
 
-    // Click Solo on Foley stem
-    const soloBtn = mixerSection.getByRole('button', { name: /Solo Foley & Tactical SFX/i });
-    await soloBtn.click();
-    await expect(page.getByText('SOLO ON')).toBeVisible();
+    const servicesSection = page.locator('#services');
+    await servicesSection.scrollIntoViewIfNeeded();
+    await expect(page.getByRole('heading', { name: /Specialized Services/i })).toBeVisible();
+    await expect(servicesSection.getByText('VIDEO EDITING')).toBeVisible();
+    await expect(servicesSection.getByText('MOTION DESIGN')).toBeVisible();
   });
 
-  test('should use Project Estimator and submit inquiry modal with validation', async ({ page }) => {
-    const pricingSection = page.locator('#pricing');
-    await pricingSection.scrollIntoViewIfNeeded();
+  test('should open contact modal, fill video brief, and submit inquiry', async ({ page }) => {
+    const contactSection = page.locator('#contact');
+    await contactSection.scrollIntoViewIfNeeded();
+    await expect(page.getByRole('heading', { name: /LET'S WORK/i })).toBeVisible();
 
-    await expect(page.getByRole('heading', { name: /Interactive Rate & Scope Calculator/i })).toBeVisible();
+    const getInTouchBtn = contactSection.getByRole('button', { name: /Get In Touch/i });
+    await getInTouchBtn.click();
 
-    // Select Narrative Short in pricing section
-    const narrativeBtn = pricingSection.getByRole('button', { name: /Narrative Short/i });
-    await narrativeBtn.click();
-
-    // Click Inquire button
-    const inquireBtn = pricingSection.getByRole('button', { name: /Inquire With These Specs/i });
-    await inquireBtn.click();
-
-    // Verify Contact Modal is opened with pre-filled details
     const modal = page.getByRole('dialog');
     await expect(modal).toBeVisible();
     await expect(page.getByText(/CONTACT PRANAY \/\//i)).toBeVisible();
 
-    // Fill form
-    await page.fill('input[placeholder*="Brand Producer"]', 'Director S.S. Rajamouli');
-    await page.fill('input[placeholder="producer@agency.com"]', 'rajamouli@filmmakers.com');
-    await page.fill('textarea[placeholder*="Describe your vision"]', 'Looking for an epic action teaser edit with dynamic pacing and custom motion design.');
+    await page.fill('input[placeholder*="Brand Producer"]', 'Director Vikramaditya');
+    await page.fill('input[placeholder="producer@agency.com"]', 'vikram@cinema.com');
+    await page.fill('textarea[placeholder*="Describe your vision"]', 'Looking for an energetic commercial teaser edit with dynamic pacing.');
 
-    // Submit form
     const submitBtn = page.getByRole('button', { name: /Send Video Brief/i });
     await submitBtn.click();
 
-    // Verify success state
     await expect(page.getByText(/Project Inquiry Received/i)).toBeVisible({ timeout: 10000 });
   });
 });

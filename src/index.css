@@ -4,56 +4,161 @@
 
 @layer base {
   body {
-    background-color: #05070A;
-    color: #DFE7E0;
+    background-color: #03060a;
+    color: #e2e8f0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   ::selection {
-    background-color: #e0231c;
+    background-color: rgba(224, 35, 28, 0.85);
     color: #ffffff;
   }
 }
 
-/* Kage Grain Texture Layer */
+/* Subtle Film Grain Texture Layer */
 .kage-grain {
   position: fixed;
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Kage Cinematic Vignette Layer */
+/* Deep Radial Vignette Layer */
 .kage-vignette {
   position: fixed;
   inset: 0;
   z-index: 40;
   pointer-events: none;
-  background: radial-gradient(125% 95% at 50% 42%, transparent 40%, rgba(2, 4, 6, 0.75) 100%);
+  background: radial-gradient(130% 100% at 50% 40%, transparent 45%, rgba(1, 3, 6, 0.82) 100%);
 }
 
-/* OriginKit & Kage Glass Card Utilities */
-.origin-card {
-  background: linear-gradient(135deg, rgba(10, 14, 18, 0.85) 0%, rgba(5, 7, 10, 0.95) 100%);
-  border: 1px solid rgba(223, 231, 224, 0.08);
+/* ==========================================================================
+   GLASSMORPHISM DESIGN SYSTEM (Glass Panels, Insets, Pills & Hover Lighting)
+   ========================================================================== */
+
+/* Core Frosted Glass Panel */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%),
+              rgba(6, 10, 16, 0.72);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Glass Panel with Vermilion Specular Hover */
+.glass-panel-interactive {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%),
+              rgba(8, 12, 20, 0.72);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(224, 35, 28, 0.03) 100%),
+              rgba(11, 17, 28, 0.85);
+  border-color: rgba(224, 35, 28, 0.35);
+  border-top-color: rgba(255, 90, 60, 0.6);
+  box-shadow: 0 25px 60px -10px rgba(224, 35, 28, 0.18),
+              0 10px 30px rgba(0, 0, 0, 0.6),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Darker Inset Glass for Timeline, Scopes, Monitors */
+.glass-inset {
+  background: rgba(2, 4, 8, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6),
+              0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass Floating Header */
+.glass-header {
+  background: linear-gradient(180deg, rgba(6, 10, 16, 0.82) 0%, rgba(4, 7, 12, 0.7) 100%);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Glass Pill Badge / Button */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.25s ease;
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-pill-active {
+  background: linear-gradient(135deg, rgba(224, 35, 28, 0.9) 0%, rgba(180, 20, 16, 0.95) 100%);
+  border: 1px solid rgba(255, 90, 60, 0.5);
+  border-top: 1px solid rgba(255, 180, 160, 0.7);
+  box-shadow: 0 6px 20px -2px rgba(224, 35, 28, 0.5),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Form Input */
+.glass-input {
+  background: rgba(4, 7, 12, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5),
+              0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+}
+
+.glass-input:focus {
+  border-color: rgba(224, 35, 28, 0.6);
+  box-shadow: 0 0 0 3px rgba(224, 35, 28, 0.18),
+              inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Compatibility with origin-card */
+.origin-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%),
+              rgba(7, 11, 18, 0.75);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .origin-card:hover {
   border-color: rgba(224, 35, 28, 0.4);
-  box-shadow: 0 12px 40px -10px rgba(224, 35, 28, 0.18);
-}
-
-/* Japanese Vertical Writing Accent */
-.kage-vertical {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  letter-spacing: 0.3em;
+  border-top-color: rgba(255, 90, 60, 0.6);
+  box-shadow: 0 25px 60px -10px rgba(224, 35, 28, 0.2),
+              0 10px 30px rgba(0, 0, 0, 0.6),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 /* Custom Scrollbar */
@@ -63,14 +168,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #05070a;
+  background: #03060a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(223, 231, 224, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(224, 35, 28, 0.6);
+  background: rgba(224, 35, 28, 0.7);
 }

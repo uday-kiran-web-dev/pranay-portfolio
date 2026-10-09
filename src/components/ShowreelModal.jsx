@@ -88,7 +88,7 @@ export function ShowreelModal({ isOpen, onClose }) {
     if (videoRef.current) {
       videoRef.current.currentTime = time;
       if (!isPlaying) {
-        videoRef.current.play();
+        videoRef.current.play().catch(() => {});
         setIsPlaying(true);
       }
     }
@@ -116,15 +116,15 @@ export function ShowreelModal({ isOpen, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-reel-title"
-      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-2xl animate-in fade-in duration-200"
+      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl animate-in fade-in duration-200"
     >
       {/* Click outside backdrop */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative z-10 w-full max-w-5xl bg-kage-ink rounded-2xl border border-white/15 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="relative z-10 w-full max-w-5xl glass-panel rounded-3xl overflow-hidden flex flex-col max-h-[92vh] shadow-2xl">
         
         {/* Top Header Bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-kage-ink2">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 rounded-full bg-kage-vermilion animate-pulse" />
             <h3 id="modal-reel-title" className="text-sm sm:text-base font-display font-bold text-white tracking-wide">
@@ -137,11 +137,11 @@ export function ShowreelModal({ isOpen, onClose }) {
 
           <div className="flex items-center gap-2">
             {/* Aspect mode switcher */}
-            <div className="hidden sm:flex items-center bg-cinematic-800 rounded-lg p-0.5 border border-white/10">
+            <div className="hidden sm:flex items-center bg-white/[0.04] rounded-xl p-0.5 border border-white/10">
               <button
                 onClick={() => setAspectMode('16:9')}
-                className={`flex items-center gap-1 px-2 py-1 text-xs rounded-md transition-all ${
-                  aspectMode === '16:9' ? 'bg-amber-500 text-cinematic-950 font-bold' : 'text-cinematic-300 hover:text-white'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded-lg transition-all cursor-pointer ${
+                  aspectMode === '16:9' ? 'bg-kage-vermilion text-white font-bold shadow-glow-vermilion' : 'text-kage-boneDim hover:text-white'
                 }`}
                 title="16:9 Widescreen Master"
               >
@@ -150,8 +150,8 @@ export function ShowreelModal({ isOpen, onClose }) {
               </button>
               <button
                 onClick={() => setAspectMode('9:16')}
-                className={`flex items-center gap-1 px-2 py-1 text-xs rounded-md transition-all ${
-                  aspectMode === '9:16' ? 'bg-amber-500 text-cinematic-950 font-bold' : 'text-cinematic-300 hover:text-white'
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded-lg transition-all cursor-pointer ${
+                  aspectMode === '9:16' ? 'bg-kage-vermilion text-white font-bold shadow-glow-vermilion' : 'text-kage-boneDim hover:text-white'
                 }`}
                 title="9:16 Vertical Cut"
               >
@@ -162,7 +162,7 @@ export function ShowreelModal({ isOpen, onClose }) {
 
             <button
               onClick={onClose}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/15 text-cinematic-300 hover:text-white transition-all"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-kage-boneDim hover:text-white transition-all cursor-pointer"
               aria-label="Close Showreel modal"
             >
               <X className="w-5 h-5" />
@@ -171,56 +171,60 @@ export function ShowreelModal({ isOpen, onClose }) {
         </div>
 
         {/* Video Canvas Container */}
-        <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-[320px] sm:min-h-[460px]">
+        <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[440px]">
           <div
-            className={`transition-all duration-300 relative w-full flex items-center justify-center ${
-              aspectMode === '9:16' ? 'max-w-[290px] aspect-[9/16] my-4' : 'aspect-video'
+            className={`transition-all duration-300 w-full h-full flex items-center justify-center ${
+              aspectMode === '9:16' ? 'max-w-[280px] sm:max-w-[340px] aspect-[9/16]' : 'w-full aspect-video'
             }`}
           >
             <video
               ref={videoRef}
-              src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-city-with-flying-cars-at-night-42861-large.mp4"
-              poster="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80"
+              src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+              poster="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1600&q=85"
               autoPlay
               playsInline
-              loop
-              muted={isMuted}
               onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={() => {
-                if (videoRef.current) setDuration(videoRef.current.duration);
-              }}
-              className="w-full h-full object-cover rounded-lg shadow-2xl cursor-pointer"
               onClick={togglePlay}
+              className="w-full h-full object-cover cursor-pointer"
             />
-
-            {/* Subtle Film Grain CRT overlay */}
-            <div className="absolute inset-0 pointer-events-none border border-white/10 rounded-lg" />
           </div>
-        </div>
 
-        {/* Chapters Strip */}
-        <div className="px-4 py-2 bg-cinematic-950/80 border-t border-white/5 flex items-center gap-2 overflow-x-auto">
-          <span className="text-[11px] font-mono text-cinematic-400 shrink-0 uppercase">Chapters:</span>
-          {chapters.map((chap, idx) => (
-            <button
-              key={chap.title}
-              onClick={() => jumpToChapter(chap.time, idx)}
-              className={`shrink-0 px-2.5 py-1 rounded-md text-xs font-medium font-mono transition-all flex items-center gap-1.5 ${
-                activeChapter === idx
-                  ? 'bg-amber-500/20 border border-amber-500/40 text-amber-300'
-                  : 'bg-cinematic-900 border border-white/5 text-cinematic-400 hover:text-white'
-              }`}
+          {/* Quick Play/Pause Center Indicator */}
+          {!isPlaying && (
+            <div
+              onClick={togglePlay}
+              className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm cursor-pointer"
             >
-              <span className="text-amber-400/70">{chap.tag}</span>
-              <span>{chap.title}</span>
-            </button>
-          ))}
+              <div className="w-16 h-16 rounded-full bg-kage-vermilion text-white flex items-center justify-center shadow-[0_0_30px_rgba(224,35,28,0.8)]">
+                <Play className="w-8 h-8 fill-current ml-1" />
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Bottom Playback Control Bar */}
-        <div className="p-4 bg-cinematic-900 border-t border-white/10 flex flex-col gap-3">
-          {/* Scrubber Range */}
-          <div className="relative flex items-center">
+        {/* Showreel Controls & Chapter Strip */}
+        <div className="p-4 sm:p-5 bg-white/[0.02] border-t border-white/10 flex flex-col gap-3">
+          
+          {/* Chapter Markers Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {chapters.map((ch, idx) => (
+              <button
+                key={ch.title}
+                onClick={() => jumpToChapter(ch.time, idx)}
+                className={`px-3 py-1.5 rounded-xl text-left border text-xs font-mono transition-all flex items-center justify-between cursor-pointer ${
+                  activeChapter === idx
+                    ? 'bg-white/[0.08] border-kage-vermilion text-white shadow-glow-vermilion'
+                    : 'bg-white/[0.02] border-white/10 text-kage-muted hover:text-white'
+                }`}
+              >
+                <span className="truncate">{ch.title}</span>
+                <span className="text-[10px] text-kage-ember font-bold shrink-0 ml-1">{ch.tag}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Scrubber Progress Bar */}
+          <div className="flex items-center gap-3">
             <input
               type="range"
               min="0"
@@ -228,22 +232,23 @@ export function ShowreelModal({ isOpen, onClose }) {
               step="0.1"
               value={progress}
               onChange={handleSeek}
-              className="w-full h-1.5 bg-cinematic-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none"
-              aria-label="Video scrubber"
+              className="w-full accent-kage-vermilion bg-white/10 rounded-lg h-2 cursor-pointer"
             />
           </div>
 
-          <div className="flex items-center justify-between gap-4">
-            {/* Left controls */}
+          {/* Bottom Transport Controls */}
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
+              {/* Play/Pause */}
               <button
                 onClick={togglePlay}
-                className="p-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-cinematic-950 font-bold transition-all"
-                aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                className="p-2.5 rounded-xl bg-kage-vermilion hover:bg-kage-ember text-white transition-all shadow-[0_0_15px_rgba(224,35,28,0.4)] cursor-pointer"
+                title={isPlaying ? 'Pause (Space)' : 'Play (Space)'}
               >
-                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
               </button>
 
+              {/* Restart */}
               <button
                 onClick={() => {
                   if (videoRef.current) {
@@ -252,7 +257,7 @@ export function ShowreelModal({ isOpen, onClose }) {
                     setCurrentTime(0);
                   }
                 }}
-                className="p-2 rounded-lg bg-cinematic-800 hover:bg-cinematic-700 text-cinematic-300 hover:text-white transition-all"
+                className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/10 text-kage-boneDim hover:text-white transition-all cursor-pointer border border-white/10"
                 title="Restart"
               >
                 <RotateCcw className="w-4 h-4" />
@@ -262,7 +267,7 @@ export function ShowreelModal({ isOpen, onClose }) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
-                  className="p-2 rounded-lg bg-cinematic-800 hover:bg-cinematic-700 text-cinematic-300 hover:text-white"
+                  className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/10 text-kage-boneDim hover:text-white cursor-pointer border border-white/10"
                   aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
                   {isMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4" />}
@@ -279,15 +284,15 @@ export function ShowreelModal({ isOpen, onClose }) {
                     setIsMuted(val === 0);
                     if (videoRef.current) videoRef.current.volume = val;
                   }}
-                  className="w-16 sm:w-20 h-1 bg-cinematic-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                  className="w-16 sm:w-20 h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-kage-vermilion"
                   aria-label="Volume slider"
                 />
               </div>
 
               {/* Timecode */}
-              <div className="font-mono text-xs text-cinematic-200">
-                <span className="text-amber-400 font-semibold">{formatTimecode(currentTime)}</span>
-                <span className="text-cinematic-500 mx-1">/</span>
+              <div className="font-mono text-xs text-kage-boneDim">
+                <span className="text-kage-ember font-semibold">{formatTimecode(currentTime)}</span>
+                <span className="text-white/30 mx-1">/</span>
                 <span>{formatTimecode(duration)}</span>
               </div>
             </div>
@@ -296,7 +301,7 @@ export function ShowreelModal({ isOpen, onClose }) {
             <div className="flex items-center gap-2">
               <button
                 onClick={cycleSpeed}
-                className="px-2.5 py-1 rounded bg-cinematic-800 hover:bg-cinematic-700 text-xs font-mono text-amber-400 border border-white/10"
+                className="px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/10 text-xs font-mono text-kage-ember border border-white/10 cursor-pointer"
                 title="Playback Speed"
               >
                 {playbackRate}x
@@ -308,7 +313,7 @@ export function ShowreelModal({ isOpen, onClose }) {
                     videoRef.current.requestFullscreen();
                   }
                 }}
-                className="p-2 rounded-lg bg-cinematic-800 hover:bg-cinematic-700 text-cinematic-300 hover:text-white hidden sm:inline-flex"
+                className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/10 text-kage-boneDim hover:text-white hidden sm:inline-flex border border-white/10 cursor-pointer"
                 title="Fullscreen"
               >
                 <Maximize className="w-4 h-4" />
@@ -322,4 +327,3 @@ export function ShowreelModal({ isOpen, onClose }) {
     </div>
   );
 }
-

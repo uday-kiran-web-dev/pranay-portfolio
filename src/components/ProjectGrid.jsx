@@ -26,7 +26,8 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="projects" className="py-24 relative bg-kage-ink/90 border-t border-white/5">
+    <section id="work" className="py-24 relative bg-kage-ink/90 border-t border-white/5 scroll-mt-20">
+      <span id="projects" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -34,7 +35,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Badge variant="rose" size="sm">
-                SELECTED WORKS
+                SELECTED WORK
               </Badge>
               <span className="text-xs font-mono text-kage-muted">
                 40+ BRAND COLLABORATIONS & SHORT FILMS
@@ -48,13 +49,13 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
             </p>
           </div>
 
-          <div className="text-xs font-mono text-kage-muted self-start md:self-end">
+          <div className="text-xs font-mono text-kage-muted self-start md:self-end backdrop-blur-xl px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
             SHOWING <span className="text-white font-bold">{filteredProjects.length}</span> OF {PROJECTS.length} CUTS
           </div>
         </div>
 
-        {/* Filter & Search Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 p-2 rounded-2xl bg-kage-ink2/80 border border-white/10 backdrop-blur-xl">
+        {/* Frosted Glass Filter & Search Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 p-2 rounded-2xl glass-panel">
           
           {/* Category Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto p-1">
@@ -62,10 +63,10 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-medium font-mono whitespace-nowrap transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-medium font-mono whitespace-nowrap transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-kage-vermilion text-white font-bold shadow-glow-vermilion'
-                    : 'text-kage-boneDim hover:text-white hover:bg-white/5'
+                    ? 'glass-pill-active text-white font-bold'
+                    : 'text-kage-boneDim hover:text-white hover:bg-white/10'
                 }`}
               >
                 {cat}
@@ -81,7 +82,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
               placeholder="Search client, style, role..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-kage-ink border border-white/10 rounded-xl pl-9 pr-4 py-1.5 text-xs text-white placeholder-kage-muted focus:outline-none focus:border-kage-vermilion/60 transition-colors"
+              className="w-full glass-input rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-kage-muted focus:outline-none transition-colors"
             />
           </div>
 
@@ -99,7 +100,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
             ))}
           </div>
         ) : (
-          <div className="p-12 text-center rounded-2xl origin-card flex flex-col items-center justify-center gap-3">
+          <div className="p-12 text-center rounded-2xl glass-panel flex flex-col items-center justify-center gap-3">
             <Film className="w-8 h-8 text-kage-muted" />
             <h4 className="text-base font-semibold text-white">No projects found</h4>
             <p className="text-xs text-kage-muted max-w-sm">
@@ -110,7 +111,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
                 setSelectedCategory('All');
                 setSearchQuery('');
               }}
-              className="mt-2 text-xs font-mono text-kage-vermilion hover:underline"
+              className="mt-2 text-xs font-mono text-kage-vermilion hover:underline cursor-pointer"
             >
               Reset Filters
             </button>

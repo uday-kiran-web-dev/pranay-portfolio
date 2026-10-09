@@ -21,20 +21,20 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
         
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-kage-ink2/90 border border-kage-vermilion/30 backdrop-blur-xl mb-6 shadow-glow-vermilion group hover:border-kage-vermilion/60 transition-all cursor-default">
+          {/* Frosted Glass Eyebrow Pill */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/15 backdrop-blur-2xl mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] group hover:border-kage-vermilion/50 transition-all cursor-default">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-kage-vermilion opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-kage-vermilion"></span>
             </span>
-            <span className="text-xs font-mono font-medium text-kage-bone">
+            <span className="text-xs font-mono font-medium text-kage-bone tracking-wide">
               PORTFOLIO // PRANAY • VIDEO EDITOR & MOTION DESIGNER
             </span>
             <Sparkles className="w-3.5 h-3.5 text-kage-ember" />
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08] mb-6 drop-shadow-md">
             Sculpting Kinetic Energy &{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-kage-bone via-kage-ember to-kage-vermilion drop-shadow-[0_0_35px_rgba(224,35,28,0.5)]">
               Visual Rhythm
@@ -53,7 +53,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
               size="lg"
               icon={Play}
               onClick={onOpenShowreel}
-              className="text-sm sm:text-base"
+              className="text-sm sm:text-base shadow-[0_10px_30px_rgba(224,35,28,0.3)]"
             >
               Watch 2025 Showreel
             </LiquidCarveButton>
@@ -82,7 +82,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
                 className="w-full shadow-2xl"
               >
                 <div 
-                  className="relative aspect-video sm:aspect-[21/9] w-full cursor-pointer overflow-hidden rounded-[calc(1.25rem-1.5px)] bg-kage-ink flex"
+                  className="relative aspect-video sm:aspect-[21/9] w-full cursor-pointer overflow-hidden rounded-[calc(1.25rem-1.5px)] bg-kage-ink flex glass-panel"
                   onClick={onOpenShowreel}
                   onMouseEnter={() => setIsPlayingPreview(true)}
                   onMouseLeave={() => setIsPlayingPreview(false)}
@@ -96,7 +96,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                     <div className="absolute bottom-2 left-2 right-2 text-center">
-                      <span className="text-[10px] font-mono font-bold text-kage-vermilion uppercase tracking-wider">
+                      <span className="text-[10px] font-mono font-bold text-kage-vermilion uppercase tracking-wider backdrop-blur-md px-2 py-0.5 rounded-full bg-black/50 border border-white/10">
                         Pranay Edits
                       </span>
                     </div>
@@ -118,13 +118,13 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
                       <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-kage-vermilion text-white flex items-center justify-center shadow-[0_0_40px_rgba(224,35,28,0.8)] group-hover:scale-110 group-hover:bg-kage-ember transition-all duration-300">
                         <Play className="w-7 sm:w-8 h-7 sm:h-8 fill-current ml-1" />
                       </div>
-                      <span className="mt-3 text-xs sm:text-sm font-mono tracking-widest text-white font-semibold uppercase backdrop-blur-md px-3 py-1 rounded bg-black/60 border border-white/10">
+                      <span className="mt-3 text-xs sm:text-sm font-mono tracking-widest text-white font-semibold uppercase backdrop-blur-xl px-3.5 py-1.5 rounded-full bg-black/60 border border-white/20 shadow-lg">
                         Play Master Reel (02:18)
                       </span>
                     </div>
 
-                    {/* Bottom HUD Bar */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-center justify-between pointer-events-none bg-gradient-to-t from-black/90 to-transparent">
+                    {/* Bottom Frosted HUD Bar */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-center justify-between pointer-events-none bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-[2px]">
                       <div className="flex items-center gap-3">
                         <Badge variant="rose" size="sm">
                           PREMIERE & AFTER EFFECTS
@@ -145,9 +145,9 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
             </StarGate>
           </div>
 
-          {/* Metrics Grid */}
+          {/* Frosted Glass Metrics Grid */}
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-4xl">
-            <div className="p-4 rounded-xl origin-card text-left">
+            <div className="p-4 rounded-2xl glass-panel-interactive text-left">
               <div className="flex items-center gap-2 text-kage-ember mb-1">
                 <Eye className="w-4 h-4" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Brands</span>
@@ -156,7 +156,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
               <div className="text-xs text-kage-muted mt-0.5">Flipkart, Kuku FM, KIMS</div>
             </div>
 
-            <div className="p-4 rounded-xl origin-card text-left">
+            <div className="p-4 rounded-2xl glass-panel-interactive text-left">
               <div className="flex items-center gap-2 text-kage-gold mb-1">
                 <Film className="w-4 h-4" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Films</span>
@@ -165,7 +165,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
               <div className="text-xs text-kage-muted mt-0.5">Short Films Delivered</div>
             </div>
 
-            <div className="p-4 rounded-xl origin-card text-left">
+            <div className="p-4 rounded-2xl glass-panel-interactive text-left">
               <div className="flex items-center gap-2 text-kage-vermilion mb-1">
                 <Flame className="w-4 h-4" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Experience</span>
@@ -174,7 +174,7 @@ export function HeroSection({ onOpenShowreel, onOpenContact }) {
               <div className="text-xs text-kage-muted mt-0.5">Tamada Media & Freelance</div>
             </div>
 
-            <div className="p-4 rounded-xl origin-card text-left">
+            <div className="p-4 rounded-2xl glass-panel-interactive text-left">
               <div className="flex items-center gap-2 text-emerald-400 mb-1">
                 <MapPin className="w-4 h-4" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Location</span>

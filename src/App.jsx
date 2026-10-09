@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { ProjectGrid } from './components/ProjectGrid';
-import { ColorGradingSlider } from './components/ColorGradingSlider';
-import { NleTimeline } from './components/NleTimeline';
-import { StemsAudioMixer } from './components/StemsAudioMixer';
-import { GearArsenal } from './components/GearArsenal';
-import { Testimonials } from './components/Testimonials';
-import { ProjectEstimator } from './components/ProjectEstimator';
+import { Statistics } from './components/Statistics';
+import { About } from './components/About';
+import { Services } from './components/Services';
 import { Footer } from './components/Footer';
 import { ShowreelModal } from './components/ShowreelModal';
 import { ContactModal } from './components/ContactModal';
@@ -25,11 +22,6 @@ function PortfolioApp() {
 
   const { isPlaying: ambientAudio, toggle: toggleAmbientAudio } = useAmbientSuiteAudio();
 
-  const handleOpenContactWithSpecs = (specs) => {
-    setEstimatorSpecs(specs);
-    setContactOpen(true);
-  };
-
   const handleOpenGeneralContact = () => {
     setEstimatorSpecs(null);
     setContactOpen(true);
@@ -45,7 +37,7 @@ function PortfolioApp() {
       {/* Kage Side Chapter Navigation Rail */}
       <KageProgressRail />
 
-      {/* Top Navigation */}
+      {/* 01 Navigation */}
       <Navbar
         onOpenShowreel={() => setShowreelOpen(true)}
         onOpenContact={handleOpenGeneralContact}
@@ -55,39 +47,30 @@ function PortfolioApp() {
 
       {/* Main Content Sections */}
       <main className="relative z-10">
-        {/* Chapter I: The Gate */}
+        {/* 01: Hero Gate */}
         <HeroSection
           onOpenShowreel={() => setShowreelOpen(true)}
           onOpenContact={handleOpenGeneralContact}
         />
 
-        {/* Chapter II: Selected Works & 3D Vault */}
+        {/* 02: Selected Work */}
         <ProjectGrid
           selectedProject={selectedProject}
           onSelectProject={setSelectedProject}
         />
 
-        {/* Chapter III: Color Grading & ACES Scopes */}
-        <ColorGradingSlider />
+        {/* 03: Verified Statistics Strip */}
+        <Statistics />
 
-        {/* Chapter IV: NLE Multi-Track Timeline */}
-        <NleTimeline />
+        {/* 04: About Me & Experience */}
+        <About onOpenContact={handleOpenGeneralContact} />
 
-        {/* Chapter V: 5.1 Sound Design & Foley Mixer */}
-        <StemsAudioMixer />
-
-        {/* Studio Arsenal & Hardware */}
-        <GearArsenal />
-
-        {/* Industry Collaborations & Testimonials */}
-        <Testimonials />
-
-        {/* Chapter VI: Scope Estimator & Rates */}
-        <ProjectEstimator onOpenContactWithSpecs={handleOpenContactWithSpecs} />
+        {/* 05: Services & Capabilities */}
+        <Services />
       </main>
 
-      {/* Footer */}
-      <Footer />
+      {/* 06: Dark Creative Contact Footer */}
+      <Footer onOpenContact={handleOpenGeneralContact} />
 
       {/* Root-Level Modals */}
       <ShowreelModal isOpen={showreelOpen} onClose={() => setShowreelOpen(false)} />

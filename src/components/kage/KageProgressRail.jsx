@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const CHAPTERS = [
   { id: 'gate', num: '01', label: 'THE GATE', href: '#' },
-  { id: 'projects', num: '02', label: 'SELECTED WORKS', href: '#projects' },
-  { id: 'color-grading', num: '03', label: 'COLOR GRADING', href: '#color-grading' },
-  { id: 'nle-timeline', num: '04', label: 'TIMELINE', href: '#nle-timeline' },
-  { id: 'sound-mixer', num: '05', label: 'SOUND DESK', href: '#sound-mixer' },
-  { id: 'pricing', num: '06', label: 'RATES & INQUIRY', href: '#pricing' },
+  { id: 'work', num: '02', label: 'SELECTED WORK', href: '#work' },
+  { id: 'about', num: '03', label: 'ABOUT', href: '#about' },
+  { id: 'experience', num: '04', label: 'EXPERIENCE', href: '#experience' },
+  { id: 'services', num: '05', label: 'SERVICES', href: '#services' },
+  { id: 'contact', num: '06', label: 'CONTACT', href: '#contact' },
 ];
 
 export function KageProgressRail() {
