@@ -45,17 +45,17 @@ export function ProjectCard({ project, onSelect }) {
           </Badge>
           
           {project.badge && (
-            <Badge variant="rose" size="sm" className="bg-kage-vermilion/20 backdrop-blur-xl border-kage-vermilion/40 font-mono text-[10px] shadow-md">
+            <Badge variant="cyan" size="sm" className="bg-blue-600/20 backdrop-blur-xl border-cyan-400/40 text-cyan-300 font-mono text-[10px] shadow-md">
               <Award className="w-3 h-3 mr-1" />
               {project.badge.split(' ')[0]} {project.badge.split(' ')[1]}
             </Badge>
           )}
         </div>
 
-        {/* Hover Center Play Button */}
+        {/* Hover Center Play Button (Electric Blue) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div
-            className={`w-14 h-14 rounded-full bg-kage-vermilion text-white flex items-center justify-center shadow-[0_0_30px_rgba(224,35,28,0.8)] transition-all duration-300 ${
+            className={`w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-[0_0_30px_rgba(0,102,255,0.8)] transition-all duration-300 ${
               isHovered ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
             }`}
           >
@@ -66,12 +66,12 @@ export function ProjectCard({ project, onSelect }) {
         {/* Bottom Specs HUD */}
         <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-kage-boneDim pointer-events-none z-10">
           <div className="flex items-center gap-1.5 backdrop-blur-md px-2 py-0.5 rounded bg-black/40 border border-white/10">
-            <Clock className="w-3 h-3 text-kage-ember" />
+            <Clock className="w-3 h-3 text-cyan-400" />
             <span>{project.runtime}</span>
           </div>
           <div className="flex items-center gap-1 backdrop-blur-md px-2 py-0.5 rounded bg-black/40 border border-white/10">
             <span className="text-kage-muted">VIEWS:</span>
-            <span className="text-kage-ember font-semibold">{project.views}</span>
+            <span className="text-cyan-400 font-semibold">{project.views}</span>
           </div>
         </div>
       </div>
@@ -81,15 +81,15 @@ export function ProjectCard({ project, onSelect }) {
         <div>
           <div className="flex items-start justify-between gap-2">
             <div>
-              <span className="text-[11px] font-mono text-kage-ember uppercase tracking-wider block">
+              <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block font-semibold">
                 {project.client}
               </span>
-              <h3 className="text-lg font-display font-bold text-white tracking-wide group-hover:text-kage-bone transition-colors mt-0.5">
+              <h3 className="text-lg font-display font-bold text-white tracking-wide group-hover:text-cyan-200 transition-colors mt-0.5">
                 {project.title}
               </h3>
             </div>
-            <div className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-kage-vermilion/40 group-hover:bg-kage-vermilion/20 flex items-center justify-center transition-all shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-              <ArrowUpRight className="w-4 h-4 text-kage-boneDim group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <div className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-blue-500/40 group-hover:bg-blue-600/20 flex items-center justify-center transition-all shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+              <ArrowUpRight className="w-4 h-4 text-kage-boneDim group-hover:text-cyan-300 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </div>
 

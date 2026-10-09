@@ -34,7 +34,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Badge variant="rose" size="sm">
+              <Badge variant="cyan" size="sm">
                 SELECTED WORK
               </Badge>
               <span className="text-xs font-mono text-kage-muted">
@@ -45,7 +45,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
               Featured Filmography & Cuts
             </h2>
             <p className="text-kage-boneDim text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
-              Explore Pranay's latest editorial cuts: commercial brand campaigns, kinetic motion ads, viral vertical reels, and dramatic short films. Click any card to launch the full case study.
+              Explore Pranay Kumar's latest editorial cuts: commercial brand campaigns, kinetic motion ads, viral vertical reels, and dramatic short films. Click any card to launch the full case study.
             </p>
           </div>
 
@@ -111,7 +111,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
                 setSelectedCategory('All');
                 setSearchQuery('');
               }}
-              className="mt-2 text-xs font-mono text-kage-vermilion hover:underline cursor-pointer"
+              className="mt-2 text-xs font-mono text-cyan-400 hover:underline cursor-pointer"
             >
               Reset Filters
             </button>

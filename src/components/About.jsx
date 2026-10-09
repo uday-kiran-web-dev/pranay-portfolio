@@ -12,7 +12,7 @@ export function About({ onOpenContact }) {
         {/* Section Header */}
         <div className="flex flex-col items-start mb-14">
           <div className="flex items-center gap-2 mb-3">
-            <Badge variant="rose" size="sm">
+            <Badge variant="cyan" size="sm">
               ABOUT & BACKGROUND
             </Badge>
             <span className="text-xs font-mono text-kage-muted">
@@ -22,7 +22,7 @@ export function About({ onOpenContact }) {
           <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight">
             A Visual Storyteller at Heart
           </h2>
-          <div className="mt-3 w-16 h-1 bg-kage-vermilion rounded-full shadow-glow-vermilion" />
+          <div className="mt-3 w-16 h-1 bg-blue-500 rounded-full shadow-[0_0_15px_rgba(0,102,255,0.6)]" />
         </div>
 
         {/* 3-Column Glass Layout */}
@@ -46,7 +46,7 @@ export function About({ onOpenContact }) {
                   <span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 text-[10px] font-mono text-white backdrop-blur-md">
                     PRANAY KUMAR.
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-kage-vermilion/80 text-white text-[10px] font-mono font-bold backdrop-blur-md">
+                  <span className="px-2.5 py-1 rounded-full bg-blue-600/90 text-white text-[10px] font-mono font-bold backdrop-blur-md">
                     2+ YRS POST
                   </span>
                 </div>
@@ -65,7 +65,7 @@ export function About({ onOpenContact }) {
           <div className="lg:col-span-4 space-y-6">
             <div className="glass-panel rounded-3xl p-6 sm:p-7 space-y-5">
               <div>
-                <div className="text-[11px] font-mono tracking-[0.2em] text-kage-ember uppercase mb-1 font-bold">
+                <div className="text-[11px] font-mono tracking-[0.2em] text-cyan-400 uppercase mb-1 font-bold">
                   CREATIVE PHILOSOPHY
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white leading-snug tracking-tight">
@@ -84,7 +84,7 @@ export function About({ onOpenContact }) {
               <div className="pt-2 flex flex-wrap gap-3">
                 <button
                   onClick={onOpenContact}
-                  className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-kage-vermilion hover:bg-kage-ember text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(224,35,28,0.4)] cursor-pointer"
+                  className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(0,102,255,0.4)] cursor-pointer"
                 >
                   <span>Get In Touch</span>
                   <ArrowUpRight size={13} />
@@ -97,7 +97,7 @@ export function About({ onOpenContact }) {
                   download
                   className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl glass-pill text-white hover:border-white/40 font-semibold text-xs transition-all cursor-pointer"
                 >
-                  <FileText size={13} className="text-kage-ember" />
+                  <FileText size={13} className="text-cyan-400" />
                   <span>Download Résumé</span>
                   <ArrowUpRight size={13} />
                 </a>
@@ -109,7 +109,7 @@ export function About({ onOpenContact }) {
           <div id="experience" className="lg:col-span-4 space-y-6">
             <div className="glass-panel rounded-3xl p-6 sm:p-7 space-y-6">
               <div>
-                <div className="text-[11px] font-mono tracking-[0.2em] text-kage-ember uppercase mb-1 font-bold">
+                <div className="text-[11px] font-mono tracking-[0.2em] text-cyan-400 uppercase mb-1 font-bold">
                   EXPERIENCE
                 </div>
                 <h3 className="text-lg font-display font-bold text-white tracking-wide">
@@ -120,14 +120,14 @@ export function About({ onOpenContact }) {
               <div className="space-y-7 relative border-l-2 border-white/10 pl-5 ml-1 pt-1">
                 {experiences.map((exp, idx) => (
                   <div key={idx} className="relative group">
-                    {/* Timeline glowing red node */}
-                    <span className="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-kage-vermilion shadow-[0_0_10px_rgba(224,35,28,0.8)] ring-4 ring-kage-ink" />
+                    {/* Timeline glowing blue node */}
+                    <span className="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(0,102,255,0.9)] ring-4 ring-kage-ink" />
 
-                    <div className="inline-block bg-kage-vermilion/15 text-kage-ember border border-kage-vermilion/30 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full tracking-wider mb-1.5">
+                    <div className="inline-block bg-blue-600/15 text-cyan-300 border border-blue-500/30 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full tracking-wider mb-1.5">
                       {exp.duration.toUpperCase()}
                     </div>
 
-                    <h4 className="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-kage-ember transition-colors">
+                    <h4 className="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-cyan-300 transition-colors">
                       {exp.role}
                     </h4>
 

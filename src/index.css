@@ -11,7 +11,7 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   ::selection {
-    background-color: rgba(224, 35, 28, 0.85);
+    background-color: rgba(0, 102, 255, 0.85);
     color: #ffffff;
   }
 }
@@ -36,7 +36,7 @@
 }
 
 /* ==========================================================================
-   GLASSMORPHISM DESIGN SYSTEM (Glass Panels, Insets, Pills & Hover Lighting)
+   GLASSMORPHISM DESIGN SYSTEM (Glass Panels, Insets, Pills & Electric Blue Hover)
    ========================================================================== */
 
 /* Core Frosted Glass Panel */
@@ -52,7 +52,7 @@
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Interactive Glass Panel with Vermilion Specular Hover */
+/* Interactive Glass Panel with Blue / Cyan Specular Hover */
 .glass-panel-interactive {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%),
               rgba(8, 12, 20, 0.72);
@@ -66,17 +66,17 @@
 }
 
 .glass-panel-interactive:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(224, 35, 28, 0.03) 100%),
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 102, 255, 0.04) 100%),
               rgba(11, 17, 28, 0.85);
-  border-color: rgba(224, 35, 28, 0.35);
-  border-top-color: rgba(255, 90, 60, 0.6);
-  box-shadow: 0 25px 60px -10px rgba(224, 35, 28, 0.18),
+  border-color: rgba(0, 102, 255, 0.45);
+  border-top-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 25px 60px -10px rgba(0, 102, 255, 0.22),
               0 10px 30px rgba(0, 0, 0, 0.6),
               inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
 }
 
-/* Darker Inset Glass for Timeline, Scopes, Monitors */
+/* Darker Inset Glass */
 .glass-inset {
   background: rgba(2, 4, 8, 0.65);
   backdrop-filter: blur(16px);
@@ -111,15 +111,15 @@
 
 .glass-pill:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 102, 255, 0.3);
 }
 
 .glass-pill-active {
-  background: linear-gradient(135deg, rgba(224, 35, 28, 0.9) 0%, rgba(180, 20, 16, 0.95) 100%);
-  border: 1px solid rgba(255, 90, 60, 0.5);
-  border-top: 1px solid rgba(255, 180, 160, 0.7);
-  box-shadow: 0 6px 20px -2px rgba(224, 35, 28, 0.5),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.9) 0%, rgba(2, 132, 199, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  border-top: 1px solid rgba(186, 230, 253, 0.8);
+  box-shadow: 0 6px 20px -2px rgba(0, 102, 255, 0.5),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 /* Glass Form Input */
@@ -134,8 +134,8 @@
 }
 
 .glass-input:focus {
-  border-color: rgba(224, 35, 28, 0.6);
-  box-shadow: 0 0 0 3px rgba(224, 35, 28, 0.18),
+  border-color: rgba(0, 102, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2),
               inset 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
@@ -153,9 +153,9 @@
 }
 
 .origin-card:hover {
-  border-color: rgba(224, 35, 28, 0.4);
-  border-top-color: rgba(255, 90, 60, 0.6);
-  box-shadow: 0 25px 60px -10px rgba(224, 35, 28, 0.2),
+  border-color: rgba(0, 102, 255, 0.4);
+  border-top-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 25px 60px -10px rgba(0, 102, 255, 0.2),
               0 10px 30px rgba(0, 0, 0, 0.6),
               inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
@@ -178,5 +178,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(224, 35, 28, 0.7);
+  background: rgba(0, 102, 255, 0.7);
 }

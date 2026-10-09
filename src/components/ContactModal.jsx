@@ -76,7 +76,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
         particleCount: 75,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#F59E0B', '#06B6D4', '#F43F5E', '#10B981'],
+        colors: ['#0066FF', '#00E5FF', '#38BDF8', '#10B981'],
       });
 
       addToast({
@@ -106,7 +106,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-kage-vermilion animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
             <h3 id="contact-modal-title" className="text-base font-display font-bold text-white tracking-wide">
               CONTACT PRANAY KUMAR // INQUIRE
             </h3>
@@ -125,17 +125,17 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
         <div className="p-6 sm:p-8 overflow-y-auto">
           {isSubmitted ? (
             <div className="py-12 flex flex-col items-center text-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+              <div className="w-16 h-16 rounded-full bg-blue-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shadow-[0_0_20px_rgba(0,102,255,0.4)]">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h4 className="text-2xl font-display font-bold text-white">Project Inquiry Received</h4>
               <p className="text-sm text-kage-boneDim max-w-md leading-relaxed">
-                Your video brief for <strong className="text-kage-ember">{formData.projectType}</strong> has been transmitted directly to Pranay Kumar.
+                Your video brief for <strong className="text-cyan-400">{formData.projectType}</strong> has been transmitted directly to Pranay Kumar.
               </p>
               <div className="p-3.5 rounded-xl glass-inset font-mono text-xs text-kage-muted">
                 Direct phone: +91 6301939938 • Response within 12 hours
               </div>
-              <Button variant="primary" size="md" onClick={handleResetAndClose} className="mt-4">
+              <Button variant="primary" size="md" onClick={handleResetAndClose} className="mt-4 bg-blue-600 hover:bg-blue-500">
                 Return to Portfolio
               </Button>
             </div>
@@ -145,7 +145,7 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
               {/* Direct Reach Banner */}
               <div className="p-3.5 rounded-2xl glass-inset flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-kage-boneDim">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-kage-ember" />
+                  <Mail className="w-4 h-4 text-cyan-400" />
                   <span>pranayswaero111@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2 text-cyan-400">
@@ -264,10 +264,10 @@ export function ContactModal({ isOpen, onClose, initialSpecs }) {
 
                 <LiquidCarveButton
                   type="submit"
-                  variant="amber"
+                  variant="cyan"
                   size="lg"
                   icon={Send}
-                  className="w-full sm:w-auto px-8 shadow-[0_10px_25px_rgba(224,35,28,0.3)]"
+                  className="w-full sm:w-auto px-8 shadow-[0_10px_25px_rgba(0,102,255,0.35)]"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Video Brief'}
                 </LiquidCarveButton>

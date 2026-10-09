@@ -46,21 +46,21 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Signature: PRANAY KUMAR. */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500/20 via-white/5 to-transparent border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex items-center justify-center group-hover:border-rose-400/60 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.35)] transition-all">
-            <Film className="w-5 h-5 text-rose-400 group-hover:scale-110 transition-transform" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 via-white/5 to-transparent border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex items-center justify-center group-hover:border-cyan-400/60 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.35)] transition-all">
+            <Film className="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-rose-300 transition-colors drop-shadow-sm">
-                PRANAY KUMAR<span className="text-kage-vermilion">.</span>
+              <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-cyan-300 transition-colors drop-shadow-sm">
+                PRANAY KUMAR<span className="text-blue-500">.</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-[10px] font-mono text-rose-400 font-bold tracking-widest shadow-[0_0_12px_rgba(244,63,94,0.2)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-[10px] font-mono text-cyan-400 font-bold tracking-widest shadow-[0_0_12px_rgba(0,102,255,0.2)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 REC
               </span>
             </div>
             <div className="flex items-center gap-2 text-[11px] text-kage-boneDim font-mono">
-              <span className="text-amber-400/90 font-bold">TC</span>
+              <span className="text-cyan-400 font-bold">TC</span>
               <span>{timecode}</span>
               <span className="text-white/30">•</span>
               <span className="text-kage-boneDim">24 FPS</span>
@@ -87,16 +87,16 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
           <button
             onClick={toggleAmbientAudio}
             title={ambientAudio ? 'Mute Studio Ambience' : 'Play Studio Ambience'}
-            className="p-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-kage-boneDim hover:text-amber-400 hover:border-amber-500/40 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition-all cursor-pointer"
+            className="p-2.5 rounded-xl bg-white/[0.05] border border-white/15 text-kage-boneDim hover:text-cyan-400 hover:border-cyan-500/40 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] transition-all cursor-pointer"
             aria-label="Toggle ambient studio soundscape"
           >
-            {ambientAudio ? <Volume2 className="w-4 h-4 text-amber-400 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
+            {ambientAudio ? <Volume2 className="w-4 h-4 text-cyan-400 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
           </button>
 
-          {/* Let's Work CTA button matching pranay-portfolio */}
+          {/* Let's Work CTA button with blue gradient */}
           <a
             href="#contact"
-            className="inline-flex items-center space-x-1 px-5 py-2 rounded-full bg-kage-vermilion hover:bg-kage-ember text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(224,35,28,0.4)] hover:shadow-[0_6px_20px_rgba(224,35,28,0.6)] cursor-pointer"
+            className="inline-flex items-center space-x-1 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(0,102,255,0.4)] hover:shadow-[0_6px_20px_rgba(0,102,255,0.6)] cursor-pointer"
           >
             <span>Let's Work</span>
             <ArrowUpRight size={14} />
@@ -107,7 +107,7 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="#contact"
-            className="inline-flex items-center space-x-1 px-3.5 py-1.5 rounded-full bg-kage-vermilion text-white font-semibold text-xs"
+            className="inline-flex items-center space-x-1 px-3.5 py-1.5 rounded-full bg-blue-600 text-white font-semibold text-xs"
           >
             <span>Hire</span>
             <ArrowUpRight size={12} />
@@ -126,12 +126,12 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
       {mobileMenuOpen && (
         <div className="md:hidden glass-header px-4 py-4 backdrop-blur-3xl flex flex-col gap-3 border-t border-white/10 mt-3">
           <div className="flex items-center justify-between py-2 border-b border-white/10">
-            <span className="text-xs font-mono text-amber-400">{timecode} (24 FPS)</span>
+            <span className="text-xs font-mono text-cyan-400">{timecode} (24 FPS)</span>
             <button
               onClick={toggleAmbientAudio}
               className="flex items-center gap-2 text-xs text-kage-boneDim"
             >
-              {ambientAudio ? <Volume2 className="w-4 h-4 text-amber-400" /> : <VolumeX className="w-4 h-4" />}
+              {ambientAudio ? <Volume2 className="w-4 h-4 text-cyan-400" /> : <VolumeX className="w-4 h-4" />}
               <span>Room Tone</span>
             </button>
           </div>
@@ -149,7 +149,7 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center space-x-1 w-full py-2.5 rounded-full bg-kage-vermilion text-white font-semibold text-xs"
+              className="inline-flex items-center justify-center space-x-1 w-full py-2.5 rounded-full bg-blue-600 text-white font-semibold text-xs"
             >
               <span>Let's Work</span>
               <ArrowUpRight size={14} />

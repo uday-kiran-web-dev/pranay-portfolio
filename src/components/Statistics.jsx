@@ -25,7 +25,7 @@ export function Statistics() {
               >
                 <div
                   className={`text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold leading-none mb-2 ${
-                    stat.accent ? 'text-kage-vermilion drop-shadow-[0_0_20px_rgba(224,35,28,0.5)]' : 'text-white'
+                    stat.accent ? 'text-cyan-400 drop-shadow-[0_0_20px_rgba(0,229,255,0.6)]' : 'text-white'
                   }`}
                 >
                   {stat.value}
@@ -37,10 +37,10 @@ export function Statistics() {
             ))}
           </div>
 
-          {/* Right handwritten caption with glass glow */}
-          <div className="font-serif italic text-2xl sm:text-3xl text-kage-bone -rotate-6 select-none shrink-0 lg:text-right text-center opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+          {/* Right handwritten caption with blue/cyan glow */}
+          <div className="font-serif italic text-2xl sm:text-3xl text-kage-bone -rotate-6 select-none shrink-0 lg:text-right text-center opacity-90 drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]">
             More Stories<br />
-            <span className="text-kage-ember font-semibold">to Create...</span>
+            <span className="text-cyan-400 font-semibold">to Create...</span>
           </div>
 
         </div>

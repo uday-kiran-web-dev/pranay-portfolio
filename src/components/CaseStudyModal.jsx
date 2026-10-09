@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { X, Play, Clock, Film, Award, UserCheck, Layers, Sparkles, Sliders, CheckCircle } from 'lucide-react';
 import { Badge } from './ui/Badge';
-import { Button } from './ui/Button';
 
 export function CaseStudyModal({ project, onClose }) {
   const videoRef = useRef(null);
@@ -37,7 +36,7 @@ export function CaseStudyModal({ project, onClose }) {
         {/* Header Bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
           <div className="flex items-center gap-3">
-            <Badge variant="rose" size="sm">
+            <Badge variant="cyan" size="sm">
               CASE STUDY
             </Badge>
             <h3 id="case-study-title" className="text-base sm:text-lg font-display font-bold text-white tracking-wide">
@@ -76,7 +75,7 @@ export function CaseStudyModal({ project, onClose }) {
             </div>
             <div>
               <span className="text-kage-muted block text-[10px]">ROLES</span>
-              <span className="text-kage-ember font-semibold">{project.roles.join(', ')}</span>
+              <span className="text-cyan-400 font-semibold">{project.roles.join(', ')}</span>
             </div>
             <div>
               <span className="text-kage-muted block text-[10px]">SOFTWARE</span>
@@ -91,7 +90,7 @@ export function CaseStudyModal({ project, onClose }) {
           {/* Narrative Strategy & Breakdown */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col gap-3">
-              <h4 className="text-xs font-mono font-bold text-kage-vermilion uppercase tracking-wider">
+              <h4 className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
                 Editorial Vision & Narrative Strategy
               </h4>
               <p className="text-sm text-kage-boneDim leading-relaxed">
@@ -103,13 +102,13 @@ export function CaseStudyModal({ project, onClose }) {
             </div>
 
             <div className="flex flex-col gap-3">
-              <h4 className="text-xs font-mono font-bold text-kage-ember uppercase tracking-wider">
+              <h4 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider">
                 Multi-Track Timeline Architecture
               </h4>
               <div className="flex flex-col gap-2">
                 {project.timelineBreakdown.map((item, i) => (
                   <div key={i} className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-                    <span className="text-kage-ember font-semibold block">{item.track}</span>
+                    <span className="text-cyan-400 font-semibold block">{item.track}</span>
                     <span className="text-kage-boneDim text-[11px]">{item.desc}</span>
                   </div>
                 ))}
@@ -119,13 +118,13 @@ export function CaseStudyModal({ project, onClose }) {
 
           {/* Director Quote */}
           {project.directorQuote && (
-            <div className="p-5 rounded-2xl glass-panel border-kage-vermilion/30 flex items-start gap-3.5 shadow-xl">
-              <Sparkles className="w-5 h-5 text-kage-vermilion shrink-0 mt-0.5" />
+            <div className="p-5 rounded-2xl glass-panel border-cyan-500/30 flex items-start gap-3.5 shadow-xl">
+              <Sparkles className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs italic text-kage-bone font-serif leading-relaxed">
                   "{project.directorQuote}"
                 </p>
-                <span className="text-[10px] font-mono text-kage-ember block mt-1.5 font-semibold">
+                <span className="text-[10px] font-mono text-cyan-400 block mt-1.5 font-semibold">
                   — {project.director} ({project.client})
                 </span>
               </div>

@@ -8,19 +8,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Kage Design System Tokens
+        // Kage Design System Tokens (Electric Blue / Cyan Palette)
         kage: {
           ink: '#05070a',
           ink2: '#0a0e12',
           bone: '#dfe7e0',
           boneDim: '#aab4ad',
           muted: '#78837c',
-          vermilion: '#e0231c',
-          ember: '#ff5a3c',
-          gold: '#c9a24a',
+          blue: '#0066FF',
+          cyan: '#00E5FF',
+          vermilion: '#0066FF', // mapped to Electric Blue
+          ember: '#38BDF8',     // mapped to Sky/Cyan Blue
+          gold: '#38BDF8',
         },
         cinematic: {
-          950: '#05070A', // Kage Deep Black
+          950: '#05070A',
           900: '#0A0E12',
           850: '#11171D',
           800: '#1A232B',
@@ -40,12 +42,12 @@ export default {
         jp: ['"Noto Sans JP"', 'sans-serif'],
       },
       boxShadow: {
-        'glow-vermilion': '0 0 25px -3px rgba(224, 35, 28, 0.45)',
-        'glow-ember': '0 0 30px -4px rgba(255, 90, 60, 0.5)',
-        'glow-gold': '0 0 25px -3px rgba(201, 162, 74, 0.35)',
-        'glow-amber': '0 0 25px -3px rgba(245, 158, 11, 0.35)',
-        'glow-cyan': '0 0 25px -3px rgba(6, 182, 212, 0.35)',
-        'glow-rose': '0 0 25px -3px rgba(244, 63, 94, 0.35)',
+        'glow-blue': '0 0 25px -3px rgba(0, 102, 255, 0.55)',
+        'glow-cyan': '0 0 30px -4px rgba(0, 229, 255, 0.5)',
+        'glow-vermilion': '0 0 25px -3px rgba(0, 102, 255, 0.55)',
+        'glow-ember': '0 0 30px -4px rgba(56, 189, 248, 0.5)',
+        'glow-amber': '0 0 25px -3px rgba(56, 189, 248, 0.35)',
+        'glow-rose': '0 0 25px -3px rgba(0, 102, 255, 0.4)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

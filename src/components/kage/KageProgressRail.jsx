@@ -58,7 +58,7 @@ export function KageProgressRail() {
               <span
                 className={`text-[10px] font-mono tracking-widest uppercase transition-all duration-300 ${
                   isActive
-                    ? 'text-kage-vermilion font-bold translate-x-0'
+                    ? 'text-cyan-400 font-bold translate-x-0'
                     : 'text-kage-boneDim opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0'
                 }`}
               >
@@ -68,7 +68,7 @@ export function KageProgressRail() {
               {/* Number Badge */}
               <span
                 className={`text-[10px] font-mono font-semibold transition-colors ${
-                  isActive ? 'text-kage-vermilion' : 'text-kage-muted group-hover:text-kage-bone'
+                  isActive ? 'text-cyan-400' : 'text-kage-muted group-hover:text-kage-bone'
                 }`}
               >
                 {ch.num}
@@ -78,7 +78,7 @@ export function KageProgressRail() {
               <div
                 className={`h-[2px] transition-all duration-300 rounded-full ${
                   isActive
-                    ? 'w-7 bg-kage-vermilion shadow-glow-vermilion'
+                    ? 'w-7 bg-blue-500 shadow-[0_0_12px_rgba(0,102,255,0.8)]'
                     : 'w-3 bg-white/20 group-hover:w-5 group-hover:bg-white/40'
                 }`}
               />
