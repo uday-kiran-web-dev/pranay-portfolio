@@ -38,7 +38,7 @@ export function ProjectGrid({
     <section id="work" className="py-24 relative bg-kage-ink/90 border-t border-white/5 scroll-mt-20">
       <span id="projects" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
@@ -74,18 +74,17 @@ export function ProjectGrid({
 
         {/* Frosted Glass Filter & Search Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 p-2 rounded-2xl glass-panel">
-          
+
           {/* Category Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto p-1">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-medium font-mono whitespace-nowrap transition-all cursor-pointer ${
-                  selectedCategory === cat
+                className={`px-4 py-2 rounded-xl text-xs font-medium font-mono whitespace-nowrap transition-all cursor-pointer ${selectedCategory === cat
                     ? 'glass-pill-active text-white font-bold'
                     : 'text-kage-boneDim hover:text-white hover:bg-white/10'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
