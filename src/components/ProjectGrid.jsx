@@ -1,11 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Film } from 'lucide-react';
+import { Search, Film, ArrowRight, Grid, ArrowUpRight } from 'lucide-react';
 import { PROJECTS, CATEGORIES } from '../data/projects';
 import { ProjectCard } from './ProjectCard';
 import { CaseStudyModal } from './CaseStudyModal';
 import { Badge } from './ui/Badge';
 
-export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProject: extOnSelectProject }) {
+export function ProjectGrid({
+  selectedProject: extSelectedProject,
+  onSelectProject: extOnSelectProject,
+  onViewAllProjects,
+}) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [internalSelectedProject, setInternalSelectedProject] = useState(null);
@@ -25,6 +29,11 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
     });
   }, [selectedCategory, searchQuery]);
 
+  // Front page displays top 6 client cards only
+  const displayedProjects = useMemo(() => {
+    return filteredProjects.slice(0, 6);
+  }, [filteredProjects]);
+
   return (
     <section id="work" className="py-24 relative bg-kage-ink/90 border-t border-white/5 scroll-mt-20">
       <span id="projects" className="absolute -top-24" />
@@ -38,7 +47,7 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
                 SELECTED WORK
               </Badge>
               <span className="text-xs font-mono text-kage-muted">
-                40+ BRAND COLLABORATIONS & SHORT FILMS
+                FEATURED CLIENT COLLABORATIONS
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight">
@@ -49,8 +58,17 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
             </p>
           </div>
 
-          <div className="text-xs font-mono text-kage-muted self-start md:self-end backdrop-blur-xl px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-            SHOWING <span className="text-white font-bold">{filteredProjects.length}</span> OF {PROJECTS.length} CUTS
+          <div className="flex items-center gap-3 self-start md:self-end">
+            <button
+              onClick={onViewAllProjects}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/20 hover:bg-blue-600/35 border border-blue-500/40 text-xs font-mono text-cyan-300 transition-all cursor-pointer shadow-[0_0_15px_rgba(0,102,255,0.2)]"
+            >
+              <span>View All 12 Clients</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <div className="text-xs font-mono text-kage-muted backdrop-blur-xl px-3 py-2 rounded-full bg-white/[0.03] border border-white/10 hidden sm:block">
+              SHOWING <span className="text-cyan-400 font-bold">{displayedProjects.length}</span> OF {PROJECTS.length}
+            </div>
           </div>
         </div>
 
@@ -88,10 +106,10 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
 
         </div>
 
-        {/* Projects Bento Grid */}
-        {filteredProjects.length > 0 ? (
+        {/* Front Page: 6 Bento Cards Grid */}
+        {displayedProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProjects.map((project) => (
+            {displayedProjects.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
@@ -118,6 +136,30 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
           </div>
         )}
 
+        {/* Prominent "View All Projects" Banner */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl glass-panel border border-blue-500/25 shadow-[0_0_30px_rgba(0,102,255,0.15)] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-[11px] font-mono text-cyan-400 font-semibold mb-2">
+              <Grid className="w-3.5 h-3.5" />
+              <span>EXPANDED ARCHIVE AVAILABLE</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
+              Looking for more client cuts and short films?
+            </h3>
+            <p className="text-xs sm:text-sm text-kage-boneDim mt-1">
+              Explore the full archive featuring all 12 commercial ads, episodic entertainment, fintech videos, and wedding cinema.
+            </p>
+          </div>
+
+          <button
+            onClick={onViewAllProjects}
+            className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs tracking-wider transition-all shadow-[0_4px_20px_rgba(0,102,255,0.45)] hover:shadow-[0_6px_25px_rgba(0,102,255,0.6)] cursor-pointer whitespace-nowrap"
+          >
+            <span>View All 12 Client Cuts</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
       </div>
 
       {/* Internal fallback if not provided via props */}
@@ -130,3 +172,4 @@ export function ProjectGrid({ selectedProject: extSelectedProject, onSelectProje
     </section>
   );
 }
+

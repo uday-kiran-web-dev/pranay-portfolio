@@ -9,13 +9,14 @@ import { LiquidCarveButton } from './originkit/LiquidCarveButton';
 
 export function HeroSection({ onOpenContact }) {
   return (
-    <GlitterWrap
-      particleCount={45}
-      color="#0066FF"
-      speed={0.9}
-      className="min-h-[92vh] flex items-center justify-center pt-28 pb-16 relative"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section id="gate" className="relative scroll-mt-20">
+      <GlitterWrap
+        particleCount={45}
+        color="#0066FF"
+        speed={0.9}
+        className="min-h-[92vh] flex items-center justify-center pt-28 pb-16 relative"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           
@@ -154,5 +155,6 @@ export function HeroSection({ onOpenContact }) {
         </div>
       </div>
     </GlitterWrap>
+    </section>
   );
 }

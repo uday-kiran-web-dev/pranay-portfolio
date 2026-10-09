@@ -6,7 +6,7 @@ import { Badge } from './ui/Badge';
 
 export function About({ onOpenContact }) {
   return (
-    <section id="about" className="py-24 relative bg-kage-ink border-t border-b border-white/5">
+    <section id="about" className="py-24 relative bg-kage-ink border-t border-b border-white/5 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

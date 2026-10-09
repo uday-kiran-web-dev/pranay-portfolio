@@ -14,26 +14,50 @@ export function KageProgressRail() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 250;
+      const scrollPos = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const scrollCheckPos = scrollPos + viewportHeight * 0.35;
 
-      for (let i = CHAPTERS.length - 1; i >= 0; i--) {
-        const ch = CHAPTERS[i];
+      // If scrolled near page bottom, highlight contact
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
+        setActiveChapter('contact');
+        return;
+      }
+
+      // If at the top of the page, highlight gate
+      if (scrollPos < 300) {
+        setActiveChapter('gate');
+        return;
+      }
+
+      // Compute absolute top positions for all chapters
+      const sectionPositions = CHAPTERS.map((ch) => {
         if (ch.id === 'gate') {
-          if (scrollPos < 600) {
-            setActiveChapter('gate');
-            break;
-          }
-        } else {
-          const el = document.getElementById(ch.id);
-          if (el && el.offsetTop <= scrollPos) {
-            setActiveChapter(ch.id);
-            break;
-          }
+          return { id: 'gate', top: 0 };
+        }
+        const el = document.getElementById(ch.id);
+        if (!el) return null;
+        const rect = el.getBoundingClientRect();
+        return {
+          id: ch.id,
+          top: rect.top + window.scrollY,
+        };
+      }).filter(Boolean);
+
+      sectionPositions.sort((a, b) => a.top - b.top);
+
+      let currentId = 'gate';
+      for (let i = 0; i < sectionPositions.length; i++) {
+        if (scrollCheckPos >= sectionPositions[i].top) {
+          currentId = sectionPositions[i].id;
         }
       }
+
+      setActiveChapter(currentId);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

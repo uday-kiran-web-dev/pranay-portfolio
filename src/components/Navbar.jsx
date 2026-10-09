@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Film, Menu, X, Volume2, VolumeX, ArrowUpRight } from 'lucide-react';
 
-export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
+export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio, onNavigateHome, currentView = 'home' }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [timecode, setTimecode] = useState('00:00:00:00');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,19 +13,6 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Real-time 24fps Timecode Clock
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      const f = String(Math.floor((now.getMilliseconds() / 1000) * 24)).padStart(2, '0');
-      setTimecode(`${h}:${m}:${s}:${f}`);
-    }, 41.67);
-    return () => clearInterval(interval);
-  }, []);
-
   const navLinks = [
     { label: 'Work', href: '#work' },
     { label: 'About', href: '#about' },
@@ -34,6 +20,13 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
     { label: 'Services', href: '#services' },
     { label: 'Contact', href: '#contact' },
   ];
+
+  const handleNavClick = (e, href) => {
+    if (currentView !== 'home' && onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome(href);
+    }
+  };
 
   return (
     <header
@@ -45,7 +38,16 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Signature: PRANAY KUMAR. */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a
+          href="#"
+          onClick={(e) => {
+            if (currentView !== 'home' && onNavigateHome) {
+              e.preventDefault();
+              onNavigateHome('#');
+            }
+          }}
+          className="flex items-center gap-3 group"
+        >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 via-white/5 to-transparent border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] flex items-center justify-center group-hover:border-cyan-400/60 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.35)] transition-all">
             <Film className="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform" />
           </div>
@@ -54,16 +56,13 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
               <span className="font-display font-extrabold text-white text-base tracking-wider group-hover:text-cyan-300 transition-colors drop-shadow-sm">
                 PRANAY KUMAR<span className="text-blue-500">.</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-[10px] font-mono text-cyan-400 font-bold tracking-widest shadow-[0_0_12px_rgba(0,102,255,0.2)]">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-[10px] font-mono text-cyan-400 font-semibold tracking-wider shadow-[0_0_12px_rgba(0,102,255,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                REC
+                POST-PRO
               </span>
             </div>
-            <div className="flex items-center gap-2 text-[11px] text-kage-boneDim font-mono">
-              <span className="text-cyan-400 font-bold">TC</span>
-              <span>{timecode}</span>
-              <span className="text-white/30">•</span>
-              <span className="text-kage-boneDim">24 FPS</span>
+            <div className="text-[11px] text-kage-boneDim font-mono tracking-wider">
+              VIDEO EDITOR & MOTION DESIGNER
             </div>
           </div>
         </a>
@@ -74,7 +73,8 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-1.5 text-xs font-medium text-kage-boneDim hover:text-white rounded-full hover:bg-white/10 transition-all"
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="px-4 py-1.5 text-xs font-medium text-kage-boneDim hover:text-white rounded-full hover:bg-white/10 transition-all cursor-pointer"
             >
               {link.label}
             </a>
@@ -96,6 +96,7 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
           {/* Let's Work CTA button with blue gradient */}
           <a
             href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="inline-flex items-center space-x-1 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all shadow-[0_4px_15px_rgba(0,102,255,0.4)] hover:shadow-[0_6px_20px_rgba(0,102,255,0.6)] cursor-pointer"
           >
             <span>Let's Work</span>
@@ -107,6 +108,7 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="inline-flex items-center space-x-1 px-3.5 py-1.5 rounded-full bg-blue-600 text-white font-semibold text-xs"
           >
             <span>Hire</span>
@@ -126,7 +128,7 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
       {mobileMenuOpen && (
         <div className="md:hidden glass-header px-4 py-4 backdrop-blur-3xl flex flex-col gap-3 border-t border-white/10 mt-3">
           <div className="flex items-center justify-between py-2 border-b border-white/10">
-            <span className="text-xs font-mono text-cyan-400">{timecode} (24 FPS)</span>
+            <span className="text-xs font-mono text-cyan-400">PRANAY KUMAR // PORTFOLIO</span>
             <button
               onClick={toggleAmbientAudio}
               className="flex items-center gap-2 text-xs text-kage-boneDim"
@@ -139,7 +141,10 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                handleNavClick(e, link.href);
+              }}
               className="text-sm font-medium text-kage-boneDim hover:text-white py-1"
             >
               {link.label}
@@ -148,7 +153,10 @@ export function Navbar({ onOpenContact, ambientAudio, toggleAmbientAudio }) {
           <div className="pt-2 flex flex-col gap-2">
             <a
               href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                handleNavClick(e, '#contact');
+              }}
               className="inline-flex items-center justify-center space-x-1 w-full py-2.5 rounded-full bg-blue-600 text-white font-semibold text-xs"
             >
               <span>Let's Work</span>
